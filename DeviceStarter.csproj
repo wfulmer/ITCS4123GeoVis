@@ -78,26 +78,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\2DTilezoneFiles\Example Scripts\MazeGenerator.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Example Scripts\SimpleNoiseGenerator.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\AutoColliderGenerator.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\NetworkScriptableTileLayer.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\ParallaxBackground.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\ParallaxBackground2.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\PixelPerfectCamera.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\RandomDungeon.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\RandomPlatformer.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\ScriptableTileLayerBase.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\ScriptableTileLayerClasses.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\TileDataAsset.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\TileDataAssetBase.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\TileInfo.cs" />
-    <Compile Include="Assets\2DTilezoneFiles\Scripts\TilePrefabs.cs" />
+    <Compile Include="Assets\Scripts\DataConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\2DTilezoneFiles\CollisionData\dirt-tiles_collision_data.cd" />
-    <None Include="Assets\2DTilezoneFiles\CollisionData\roguelikeDungeon_collision_data.cd" />
-    <None Include="Assets\2DTilezoneFiles\Shaders\UnlitTileLayer.shader" />
+    <None Include="Assets\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
