@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DataConverter.cs" />
+    <Compile Include="Assets\Scripts\StateLayoutManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\README.txt" />

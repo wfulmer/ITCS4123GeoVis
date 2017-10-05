@@ -144,6 +144,7 @@
     <None Include="Assets\2DTilezoneFiles\CollisionData\dirt-tiles_collision_data.cd" />
     <None Include="Assets\2DTilezoneFiles\CollisionData\roguelikeDungeon_collision_data.cd" />
     <None Include="Assets\2DTilezoneFiles\Shaders\UnlitTileLayer.shader" />
+    <None Include="Assets\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
