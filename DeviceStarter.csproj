@@ -79,7 +79,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DataConverter.cs" />
+    <Compile Include="Assets\Scripts\ExampleInteractiveItem.cs" />
+    <Compile Include="Assets\Scripts\Reticle.cs" />
+    <Compile Include="Assets\Scripts\SelectionRadial.cs" />
+    <Compile Include="Assets\Scripts\SelectionSlider.cs" />
     <Compile Include="Assets\Scripts\StateLayoutManager.cs" />
+    <Compile Include="Assets\Scripts\UIFader.cs" />
+    <Compile Include="Assets\Scripts\VRCameraUI.cs" />
+    <Compile Include="Assets\Scripts\VREyeRaycaster.cs" />
+    <Compile Include="Assets\Scripts\VRInput.cs" />
+    <Compile Include="Assets\Scripts\VRInteractiveItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\README.txt" />
