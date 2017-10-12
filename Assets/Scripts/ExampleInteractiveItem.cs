@@ -14,6 +14,7 @@ namespace DataStarter
         [SerializeField] private VRInteractiveItem m_InteractiveItem;
         [SerializeField] private Renderer m_Renderer;
 
+        public Canvas canvas;
 
         private void Awake ()
         {
@@ -58,8 +59,10 @@ namespace DataStarter
         //Handle the Click event
         private void HandleClick()
         {
-            Debug.Log("Show click state");
+            string tag = gameObject.tag;
+            Debug.Log("Show click state: " + tag);
             m_Renderer.material = m_ClickedMaterial;
+            canvas.GetComponent<ChemicalGraph>().genGraph(tag);
         }
 
 
