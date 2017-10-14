@@ -14,7 +14,9 @@ namespace DataStarter
         [SerializeField] private VRInteractiveItem m_InteractiveItem;
         [SerializeField] private Renderer m_Renderer;
 
-        public Canvas canvas;
+        public Canvas upperCanvas;
+        public Canvas midCanvas;
+        public Canvas lowerCanvas;
 
         private void Awake ()
         {
@@ -62,7 +64,25 @@ namespace DataStarter
             string tag = gameObject.tag;
             Debug.Log("Show click state: " + tag);
             m_Renderer.material = m_ClickedMaterial;
-            canvas.GetComponent<ChemicalGraph>().genGraph(tag);
+            if (midCanvas.GetComponent<ChemicalGraph>().generated == false)
+            {
+                midCanvas.transform.position = transform.position;
+                midCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+            }
+            else if (upperCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+            {
+                upperCanvas.transform.position = transform.position;
+                upperCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+            }
+            else if (lowerCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text) && !tag.Equals(upperCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+            {
+                lowerCanvas.transform.position = transform.position;
+                lowerCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+            }
+            else
+            {
+                Debug.Log("No open graphs to draw to!");
+            }
         }
 
 

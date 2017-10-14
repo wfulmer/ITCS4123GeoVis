@@ -236,6 +236,7 @@
     <Compile Include="Assets\Scripts\ChemicalGraph.cs" />
     <Compile Include="Assets\Scripts\DataConverter.cs" />
     <Compile Include="Assets\Scripts\ExampleInteractiveItem.cs" />
+    <Compile Include="Assets\Scripts\Piegraph.cs" />
     <Compile Include="Assets\Scripts\Reticle.cs" />
     <Compile Include="Assets\Scripts\SelectionRadial.cs" />
     <Compile Include="Assets\Scripts\SelectionSlider.cs" />
@@ -267,7 +268,6 @@
     <None Include="Assets\OvrAvatar\Content\Materials\AvatarSurfaceShaderSelfOccluding.shader" />
     <None Include="Assets\OvrAvatar\LICENSE.txt" />
     <None Include="Assets\OvrAvatar\THIRD_PARTY_NOTICES.txt" />
-    <None Include="Assets\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

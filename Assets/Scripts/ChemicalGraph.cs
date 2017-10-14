@@ -90,38 +90,25 @@ public class AllStateChemInfo
 
 public class ChemicalGraph : MonoBehaviour {
 
-    public Transform ChemBar1;
-    public Transform ChemBar2;
-    public Transform ChemBar3;
-    public Transform ChemBar4;
-    public Transform ChemBar5;
-    public Transform ChemBar6;
-    public Transform ChemBar7;
-    public Transform ChemBar8;
-    public Transform ChemBar9;
-    public Transform ChemBar10;
-    public Text ChemBar1Text;
-    public Text ChemBar2Text;
-    public Text ChemBar3Text;
-    public Text ChemBar4Text;
-    public Text ChemBar5Text;
-    public Text ChemBar6Text;
-    public Text ChemBar7Text;
-    public Text ChemBar8Text;
-    public Text ChemBar9Text;
-    public Text ChemBar10Text;
-
     private AllStateChemInfo states;
     private Dictionary<string, StateChemInfo> statesDict = new Dictionary<string, StateChemInfo>();
+
+    // Pie graph values and colors
+    private float[] values = new float[10];
+    private Color[] wedgeColors = new Color[10];
+    public Image wedgePrefab;
+    public Vector3 upperTarget;
+    public Vector3 midTarget;
+    public Vector3 lowerTarget;
+    private Vector3 target;
+    public float expandSpeed;
+
+    public bool generated = false;
+    public Text stateTitle;
 
     void Awake () {
         string dataAsJson = File.ReadAllText("Assets/Data/StateChemicals.json");
         states = JsonUtility.FromJson<AllStateChemInfo>(dataAsJson);
-
-        
-
-        Debug.Log(states.NC.name1);
-        Debug.Log(states.NC.value1);
 
         statesDict.Add("AL", states.AL);
         statesDict.Add("AZ", states.AZ);
@@ -176,37 +163,56 @@ public class ChemicalGraph : MonoBehaviour {
     public void genGraph(string stateTag) {
         StateChemInfo state = statesDict[stateTag];
 
-        ChemBar1Text.text = state.name1;
-        Debug.Log(state.name1);
-        ChemBar2Text.text = state.name2;
-        ChemBar3Text.text = state.name3;
-        ChemBar4Text.text = state.name4;
-        ChemBar5Text.text = state.name5;
-        ChemBar6Text.text = state.name6;
-        ChemBar7Text.text = state.name7;
-        ChemBar8Text.text = state.name8;
-        ChemBar9Text.text = state.name9;
-        ChemBar10Text.text = state.name10;
+        values[0] = state.value1;
+        values[1] = state.value2;
+        values[2] = state.value3;
+        values[3] = state.value4;
+        values[4] = state.value5;
+        values[5] = state.value6;
+        values[6] = state.value7;
+        values[7] = state.value8;
+        values[8] = state.value9;
+        values[9] = state.value10;
 
-        ChemBar1.position = new Vector3(-220, 60, -230) + new Vector3(0, ((state.value1 - 20f) / 2.0f), 0);
-        ChemBar1.localScale = new Vector3(20, state.value1, 20);
-        ChemBar2.position = new Vector3(-220, 60, -210) + new Vector3(0, ((state.value2 - 20f) / 2.0f), 0);
-        ChemBar2.localScale = new Vector3(20, state.value2, 20);
-        ChemBar3.position = new Vector3(-220, 60, -190) + new Vector3(0, ((state.value3 - 20f) / 2.0f), 0);
-        ChemBar3.localScale = new Vector3(20, state.value3, 20);
-        ChemBar4.position = new Vector3(-220, 60, -170) + new Vector3(0, ((state.value4 - 20f) / 2.0f), 0);
-        ChemBar4.localScale = new Vector3(20, state.value4, 20);
-        ChemBar5.position = new Vector3(-220, 60, -150) + new Vector3(0, ((state.value5 - 20f) / 2.0f), 0);
-        ChemBar5.localScale = new Vector3(20, state.value5, 20);
-        ChemBar6.position = new Vector3(-220, 60, -130) + new Vector3(0, ((state.value6 - 20f) / 2.0f), 0);
-        ChemBar6.localScale = new Vector3(20, state.value6, 20);
-        ChemBar7.position = new Vector3(-220, 60, -110) + new Vector3(0, ((state.value7 - 20f) / 2.0f), 0);
-        ChemBar7.localScale = new Vector3(20, state.value7, 20);
-        ChemBar8.position = new Vector3(-220, 60, -90) + new Vector3(0, ((state.value8 - 20f) / 2.0f), 0);
-        ChemBar8.localScale = new Vector3(20, state.value8, 20);
-        ChemBar9.position = new Vector3(-220, 60, -70) + new Vector3(0, ((state.value9 - 20f) / 2.0f), 0);
-        ChemBar9.localScale = new Vector3(20, state.value9, 20);
-        ChemBar10.position = new Vector3(-220, 60, -50) + new Vector3(0, ((state.value10 - 20f) / 2.0f), 0);
-        ChemBar10.localScale = new Vector3(20, state.value10, 20);
+        wedgeColors[0] = new Color(1, 0, 0, 1);
+        wedgeColors[1] = new Color(0, 1, 0, 1);
+        wedgeColors[2] = new Color(0, 0, 1, 1);
+        wedgeColors[3] = new Color(1, 0, 1, 1);
+        wedgeColors[4] = new Color(1, 1, 0, 1);
+        wedgeColors[5] = new Color(0, 1, 1, 1);
+        wedgeColors[6] = new Color(0.5f, 0.5f, 0, 1);
+        wedgeColors[7] = new Color(0, 0.5f, 0.5f, 1);
+        wedgeColors[8] = new Color(0.5f, 0, 0.5f, 1);
+        wedgeColors[9] = new Color(1, 1, 1, 1);
+        stateTitle.text = stateTag;
+        MakeGraph();
+    }
+
+    void MakeGraph()
+    {
+        float total = 0f;
+        float zRotation = 0f;
+        for (int i = 0; i < values.Length; i++)
+        {
+            total += values[i];
+        }
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            Image newWedge = Instantiate(wedgePrefab) as Image;
+            newWedge.transform.SetParent(transform, false);
+            newWedge.color = wedgeColors[i];
+            newWedge.fillAmount = values[i] / total;
+            newWedge.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, zRotation));
+            zRotation -= newWedge.fillAmount * 360f;
+        }
+
+        target = midTarget;
+        generated = true;
+    }
+
+    private void Update()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target, expandSpeed * Time.deltaTime);
     }
 }
