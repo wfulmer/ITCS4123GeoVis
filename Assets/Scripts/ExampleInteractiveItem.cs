@@ -18,6 +18,8 @@ namespace DataStarter
         public Canvas midCanvas;
         public Canvas lowerCanvas;
 
+        private bool generated = false;
+
         private void Awake ()
         {
             m_Renderer.material = m_NormalMaterial;
@@ -46,7 +48,10 @@ namespace DataStarter
         private void HandleOver()
         {
             Debug.Log("Show over state");//this changes the color of material on the next line.
-            m_Renderer.material = m_OverMaterial;
+            if (generated == false)
+            {
+                m_Renderer.material = m_OverMaterial;
+            }
         }
 
 
@@ -54,34 +59,62 @@ namespace DataStarter
         private void HandleOut()
         {
             Debug.Log("Show out state");
-            m_Renderer.material = m_NormalMaterial;
+            if (generated == false)
+            {
+                m_Renderer.material = m_NormalMaterial;
+            }
         }
 
 
         //Handle the Click event
         private void HandleClick()
         {
-            string tag = gameObject.tag;
-            Debug.Log("Show click state: " + tag);
-            m_Renderer.material = m_ClickedMaterial;
-            if (midCanvas.GetComponent<ChemicalGraph>().generated == false)
+            if (generated == false)
             {
-                midCanvas.transform.position = transform.position;
-                midCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
-            }
-            else if (upperCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
-            {
-                upperCanvas.transform.position = transform.position;
-                upperCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
-            }
-            else if (lowerCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text) && !tag.Equals(upperCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
-            {
-                lowerCanvas.transform.position = transform.position;
-                lowerCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                string tag = gameObject.tag;
+                Debug.Log("Show click state: " + tag);
+                m_Renderer.material = m_ClickedMaterial;
+                if (midCanvas.GetComponent<ChemicalGraph>().generated == false)
+                {
+                    midCanvas.transform.position = transform.position;
+                    midCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                    generated = true;
+                }
+                else if (upperCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    upperCanvas.transform.position = transform.position;
+                    upperCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                    generated = true;
+                }
+                else if (lowerCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text) && !tag.Equals(upperCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    lowerCanvas.transform.position = transform.position;
+                    lowerCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                    generated = true;
+                }
+                else
+                {
+                    Debug.Log("No open graphs to draw to!");
+                }
             }
             else
             {
-                Debug.Log("No open graphs to draw to!");
+                if (midCanvas.GetComponent<ChemicalGraph>().generated == true && tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    midCanvas.GetComponent<ChemicalGraph>().Clear();
+                    generated = false;
+                }
+                else if (upperCanvas.GetComponent<ChemicalGraph>().generated == true && tag.Equals(upperCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    upperCanvas.GetComponent<ChemicalGraph>().Clear();
+                    generated = false;
+                }
+                else if (lowerCanvas.GetComponent<ChemicalGraph>().generated == true && tag.Equals(lowerCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    lowerCanvas.GetComponent<ChemicalGraph>().Clear();
+                    generated = false;
+                }
+                m_Renderer.material = m_OverMaterial;
             }
         }
 

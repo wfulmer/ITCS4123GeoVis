@@ -96,6 +96,7 @@ public class ChemicalGraph : MonoBehaviour {
     // Pie graph values and colors
     private float[] values = new float[10];
     private Color[] wedgeColors = new Color[10];
+    private string[] wedgeLabels = new string[10];
     public Image wedgePrefab;
     public Vector3 upperTarget;
     public Vector3 midTarget;
@@ -174,6 +175,17 @@ public class ChemicalGraph : MonoBehaviour {
         values[8] = state.value9;
         values[9] = state.value10;
 
+        wedgeLabels[0] = state.name1;
+        wedgeLabels[1] = state.name2;
+        wedgeLabels[2] = state.name3;
+        wedgeLabels[3] = state.name4;
+        wedgeLabels[4] = state.name5;
+        wedgeLabels[5] = state.name6;
+        wedgeLabels[6] = state.name7;
+        wedgeLabels[7] = state.name8;
+        wedgeLabels[8] = state.name9;
+        wedgeLabels[9] = state.name10;
+
         wedgeColors[0] = new Color(1, 0, 0, 1);
         wedgeColors[1] = new Color(0, 1, 0, 1);
         wedgeColors[2] = new Color(0, 0, 1, 1);
@@ -201,6 +213,7 @@ public class ChemicalGraph : MonoBehaviour {
         {
             Image newWedge = Instantiate(wedgePrefab) as Image;
             newWedge.transform.SetParent(transform, false);
+            newWedge.GetComponent<Wedge>().label = wedgeLabels[i];
             newWedge.color = wedgeColors[i];
             newWedge.fillAmount = values[i] / total;
             newWedge.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, zRotation));
@@ -214,5 +227,21 @@ public class ChemicalGraph : MonoBehaviour {
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, expandSpeed * Time.deltaTime);
+    }
+
+    public void Clear()
+    {
+        Destroy(transform.Find("Wedge(Clone)").gameObject);
+        //while(transform.Find("Wedge(Clone)"))
+        foreach(Transform childWedge in transform)
+        {
+            if (childWedge.name == "Wedge(Clone)")
+            {
+                Destroy(childWedge.gameObject);
+            }
+        }
+        generated = false;
+        transform.position = new Vector3(0, 0, 0);
+        target = new Vector3(0, 0, 0);
     }
 }
