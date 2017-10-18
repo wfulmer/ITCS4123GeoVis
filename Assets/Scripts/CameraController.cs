@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 	
-	// Update is called once per frame
-	void Update () {
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void Update()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    // Update is called once per frame
+    /*void Update () {
         Camera mycam = GetComponent<Camera>();
 
         float sensitivity = 0.05f;
@@ -20,5 +30,5 @@ public class CameraController : MonoBehaviour {
 
         Vector3 v = mycam.ScreenToWorldPoint(sp);
         transform.LookAt(v, Vector3.up);
-    }
+    }*/
 }

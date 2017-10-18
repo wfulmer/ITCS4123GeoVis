@@ -209,6 +209,11 @@ public class ChemicalGraph : MonoBehaviour {
             total += values[i];
         }
 
+        float angle = 0f;
+        float angleInRadians = ((angle * Mathf.PI) / 180);
+        float angleCos = Mathf.Cos(angleInRadians);
+        float angleSin = Mathf.Sin(angleInRadians);
+
         for (int i = 0; i < values.Length; i++)
         {
             Image newWedge = Instantiate(wedgePrefab) as Image;
@@ -216,6 +221,31 @@ public class ChemicalGraph : MonoBehaviour {
             newWedge.GetComponent<Wedge>().label = wedgeLabels[i];
             newWedge.color = wedgeColors[i];
             newWedge.fillAmount = values[i] / total;
+
+            // Create the collider for the wedge and attach it
+            PolygonCollider2D collider = newWedge.GetComponent<PolygonCollider2D>();
+            Vector2[] points = new Vector2[6];
+            points[0] = new Vector2(0, 0);
+            // Since we're using triangles to approximate a parital circle, I'm using 4 triangles per wedge
+            for (int angleI = 1; angleI <= 4; angleI ++) {
+                // The piegraph doesn't generate the same direction as the unit circle, so we'll convert
+                angle = 90 + (-(newWedge.fillAmount * 360f * (0.25f * angleI)));
+                if (angle < 0)
+                {
+                    angle += 360;
+                }
+                // Cos and Sin take radians as parameters, not degrees
+                angleInRadians = ((angle * Mathf.PI) / 180);
+                angleCos = Mathf.Cos(angleInRadians);
+                angleSin = Mathf.Sin(angleInRadians);
+
+                points[5 - angleI] = new Vector2(47.0f * angleCos, 47.0f * angleSin);
+            }
+            angleCos = Mathf.Cos(angleInRadians);
+            angleSin = Mathf.Sin(angleInRadians);
+            points[5] = new Vector2(0, 47);
+            collider.SetPath(0, points);
+
             newWedge.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, zRotation));
             zRotation -= newWedge.fillAmount * 360f;
         }
