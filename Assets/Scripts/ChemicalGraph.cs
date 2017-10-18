@@ -104,6 +104,10 @@ public class ChemicalGraph : MonoBehaviour {
     private Vector3 target;
     public float expandSpeed;
 
+    //Sibling graphs
+    public ChemicalGraph sibling1;
+    public ChemicalGraph sibling2;
+
     public bool generated = false;
     public Text stateTitle;
 
@@ -187,15 +191,15 @@ public class ChemicalGraph : MonoBehaviour {
         wedgeLabels[9] = state.name10;
 
         wedgeColors[0] = new Color(1, 0, 0, 1);
-        wedgeColors[1] = new Color(0, 1, 0, 1);
-        wedgeColors[2] = new Color(0, 0, 1, 1);
-        wedgeColors[3] = new Color(1, 0, 1, 1);
-        wedgeColors[4] = new Color(1, 1, 0, 1);
-        wedgeColors[5] = new Color(0, 1, 1, 1);
-        wedgeColors[6] = new Color(0.5f, 0.5f, 0, 1);
-        wedgeColors[7] = new Color(0, 0.5f, 0.5f, 1);
-        wedgeColors[8] = new Color(0.5f, 0, 0.5f, 1);
-        wedgeColors[9] = new Color(1, 1, 1, 1);
+        wedgeColors[1] = new Color(0.9f, 0.1f, 0, 1);
+        wedgeColors[2] = new Color(0.8f, 0.2f, 0, 1);
+        wedgeColors[3] = new Color(0.7f, 0.3f, 0, 1);
+        wedgeColors[4] = new Color(0.6f, 0.4f, 0, 1);
+        wedgeColors[5] = new Color(0.5f, 0.5f, 0, 1);
+        wedgeColors[6] = new Color(0.4f, 0.6f, 0, 1);
+        wedgeColors[7] = new Color(0.3f, 0.7f, 0, 1);
+        wedgeColors[8] = new Color(0.2f, 0.8f, 0, 1);
+        wedgeColors[9] = new Color(0.1f, 0.9f, 0, 1);
         stateTitle.text = stateTag;
         MakeGraph();
     }
@@ -220,6 +224,7 @@ public class ChemicalGraph : MonoBehaviour {
             newWedge.transform.SetParent(transform, false);
             newWedge.GetComponent<Wedge>().label = wedgeLabels[i];
             newWedge.color = wedgeColors[i];
+            newWedge.GetComponent<Wedge>().defaultColor = wedgeColors[i];
             newWedge.fillAmount = values[i] / total;
 
             // Create the collider for the wedge and attach it
@@ -273,5 +278,59 @@ public class ChemicalGraph : MonoBehaviour {
         generated = false;
         transform.position = new Vector3(0, 0, 0);
         target = new Vector3(0, 0, 0);
+    }
+
+    public void ExpandMatchingWedges(string chemical)
+    {
+        foreach (Transform childWedge in sibling1.transform)
+        {
+            if (childWedge.name == "Wedge(Clone)")
+            {
+                string childLabel = childWedge.GetComponent<Wedge>().label;
+                if (chemical.Equals(childLabel))
+                {
+                    childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                }
+            }
+        }
+
+        foreach (Transform childWedge in sibling2.transform)
+        {
+            if (childWedge.name == "Wedge(Clone)")
+            {
+                string childLabel = childWedge.GetComponent<Wedge>().label;
+                if (chemical.Equals(childLabel))
+                {
+                    childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                }
+            }
+        }
+    }
+
+    public void ContractMatchingWedges(string chemical)
+    {
+        foreach (Transform childWedge in sibling1.transform)
+        {
+            if (childWedge.name == "Wedge(Clone)")
+            {
+                string childLabel = childWedge.GetComponent<Wedge>().label;
+                if (chemical.Equals(childLabel))
+                {
+                    childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                }
+            }
+        }
+
+        foreach (Transform childWedge in sibling2.transform)
+        {
+            if (childWedge.name == "Wedge(Clone)")
+            {
+                string childLabel = childWedge.GetComponent<Wedge>().label;
+                if (chemical.Equals(childLabel))
+                {
+                    childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                }
+            }
+        }
     }
 }
