@@ -7,22 +7,8 @@ using UnityEngine.EventSystems;
 public class Wedge : MonoBehaviour {
     
     public string label = "";
-    public float angle = 0f;
     public bool expanded = false;
     public Color defaultColor;
-
-	// Use this for initialization
-	void Awake () {
-        //Cursor.lockState = CursorLockMode.Locked;
-	}
-
-    private void Update()
-    {
-        if (EventSystem.current.IsPointerOverGameObject())
-        {
-            Debug.Log("Pointer hover");
-        }
-    }
 
     private void OnMouseOver()
     {
@@ -57,23 +43,17 @@ public class Wedge : MonoBehaviour {
     public void Expand()
     {
         GetComponent<Image>().color = new Color(0, 0, 1, 1);
-        /*if (expanded == false)
+        if (expanded == false)
         {
-            float halfAngle = angle / 2.0f;
-            float angleInRadians = ((halfAngle * Mathf.PI) / 180);
-            float angleCos = Mathf.Cos(angleInRadians);
-            float angleSin = Mathf.Sin(angleInRadians);
-
-            transform.position = transform.position + new Vector3(10f * angleCos, 10f * angleSin, 0);
-
+            transform.localScale = new Vector3(0.8f, 0.8f, 1);
             expanded = true;
-        }*/
+        }
     }
 
     public void Contract()
     {
         GetComponent<Image>().color = defaultColor;
-        /*transform.position = transform.parent.position;
-        expanded = false;*/
+        transform.localScale = new Vector3(1, 1, 1);
+        expanded = false;
     }
 }
