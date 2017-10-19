@@ -32,6 +32,7 @@ namespace DataStarter
             m_InteractiveItem.OnOut += HandleOut;
             m_InteractiveItem.OnClick += HandleClick;
             m_InteractiveItem.OnDoubleClick += HandleDoubleClick;
+            m_InteractiveItem.OnA += HandleOnA;
         }
 
 
@@ -41,6 +42,7 @@ namespace DataStarter
             m_InteractiveItem.OnOut -= HandleOut;
             m_InteractiveItem.OnClick -= HandleClick;
             m_InteractiveItem.OnDoubleClick -= HandleDoubleClick;
+            m_InteractiveItem.OnA -= HandleOnA;
         }
 
 
@@ -124,6 +126,57 @@ namespace DataStarter
         {
             Debug.Log("Show double click");
             m_Renderer.material = m_DoubleClickedMaterial;
+        }
+
+        private void HandleOnA()
+        {
+            if (generated == false && OVRInput.GetUp(OVRInput.Button.One))
+            {
+                string tag = gameObject.tag;
+                Debug.Log("AAAAA. Show click state: " + tag);
+                m_Renderer.material = m_ClickedMaterial;
+                if (midCanvas.GetComponent<ChemicalGraph>().generated == false)
+                {
+                    midCanvas.transform.position = transform.position;
+                    midCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                    generated = true;
+                }
+                else if (upperCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    upperCanvas.transform.position = transform.position;
+                    upperCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                    generated = true;
+                }
+                else if (lowerCanvas.GetComponent<ChemicalGraph>().generated == false && !tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text) && !tag.Equals(upperCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    lowerCanvas.transform.position = transform.position;
+                    lowerCanvas.GetComponent<ChemicalGraph>().genGraph(tag);
+                    generated = true;
+                }
+                else
+                {
+                    Debug.Log("No open graphs to draw to!");
+                }
+            }
+            else
+            {
+                if (midCanvas.GetComponent<ChemicalGraph>().generated == true && tag.Equals(midCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    midCanvas.GetComponent<ChemicalGraph>().Clear();
+                    generated = false;
+                }
+                else if (upperCanvas.GetComponent<ChemicalGraph>().generated == true && tag.Equals(upperCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    upperCanvas.GetComponent<ChemicalGraph>().Clear();
+                    generated = false;
+                }
+                else if (lowerCanvas.GetComponent<ChemicalGraph>().generated == true && tag.Equals(lowerCanvas.GetComponent<ChemicalGraph>().stateTitle.text))
+                {
+                    lowerCanvas.GetComponent<ChemicalGraph>().Clear();
+                    generated = false;
+                }
+                m_Renderer.material = m_OverMaterial;
+            }
         }
     }
 

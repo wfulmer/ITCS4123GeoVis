@@ -15,7 +15,7 @@ namespace DataStarter
         public event Action OnDoubleClick;      // Called when double click input is detected whilst the gaze is over this object.
         public event Action OnUp;               // Called when Fire1 is released whilst the gaze is over this object.
         public event Action OnDown;             // Called when Fire1 is pressed whilst the gaze is over this object.
-
+        public event Action OnA;
 
         protected bool m_IsOver;
 
@@ -71,6 +71,12 @@ namespace DataStarter
         {
             if (OnDown != null)
                 OnDown();
+        }
+
+        public void A()
+        {
+            if (OnA != null)
+                OnA();
         }
     }
 }
