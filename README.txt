@@ -5,8 +5,12 @@ Jesse Pinkston - Industry Sector bar graph (Unimplemented, converting to pie cha
 For our Device Starter, we decided to stick with the same data set from our Data Starter, 
 which was the EPA Releases set.
 
-We decided to use VR to create our visualization, using Unity to create a 3D map of the 48 contiguous
-United States. This map was raised and colored based on the amount of releases in each state.
+We decided to use VR to create our visualization, using Unity to create a 3D map of the 50 United States. 
+This map was raised and colored based on the amount of releases in each state. The states were created by
+taking an image of the outline of each state and filling it in with a solid color. Then a .STL file was
+created using the webapp http://app.selva3d.com. Each of these files were then converted to .obj files using
+this website http://www.greentoken.de/onlineconv/. Note: this process is only useful for extruding a 2D image
+to create a 3D object.
 
 For interaction, we have allowed the user to look at and click on a state. This will bring up a pie chart
 to the left of the states with the top 10 chemicals released in that state. You can select up to three 

@@ -52,6 +52,8 @@ TagManager:
   - WV
   - WI
   - WY
+  - AK
+  - HI
   layers:
   - Default
   - TransparentFX
