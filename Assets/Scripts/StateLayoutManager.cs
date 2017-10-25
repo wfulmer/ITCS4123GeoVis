@@ -60,12 +60,14 @@ public class StateInfo
     public float KY;
     public float OR;
     public float SD;
+    public float HI;
 }
 
 public class StateLayoutManager : MonoBehaviour {
 
     // Transforms
     public Transform Alabama;
+    public Transform Alaska;
     public Transform Arizona;
     public Transform Arkansas;
     public Transform California;
@@ -74,6 +76,7 @@ public class StateLayoutManager : MonoBehaviour {
     public Transform Delaware;
     public Transform Florida;
     public Transform Georgia;
+    public Transform Hawaii;
     public Transform Idaho;
     public Transform Illinois;
     public Transform Indiana;
@@ -116,6 +119,7 @@ public class StateLayoutManager : MonoBehaviour {
 
     //Materials
     public Material AlabamaMaterial;
+    public Material AlaskaMaterial;
     public Material ArizonaMaterial;
     public Material ArkansasMaterial;
     public Material CaliforniaMaterial;
@@ -124,6 +128,7 @@ public class StateLayoutManager : MonoBehaviour {
     public Material DelawareMaterial;
     public Material FloridaMaterial;
     public Material GeorgiaMaterial;
+    public Material HawaiiMaterial;
     public Material IdahoMaterial;
     public Material IllinoisMaterial;
     public Material IndianaMaterial;
@@ -171,6 +176,7 @@ public class StateLayoutManager : MonoBehaviour {
 
         // Set State Z positions based on height
         Alabama.position = Alabama.position + new Vector3(0, 0, 30.0f - heights.AL);
+        Alaska.position = Alaska.position + new Vector3(0, 0, 30.0f - heights.AS);
         Arizona.position = Arizona.position + new Vector3(0, 0, 30.0f - heights.AZ);
         Arkansas.position = Arkansas.position + new Vector3(0, 0, 30.0f - heights.AR);
         California.position = California.position + new Vector3(0, 0, 30.0f - heights.CA);
@@ -179,6 +185,7 @@ public class StateLayoutManager : MonoBehaviour {
         Delaware.position = Delaware.position + new Vector3(0, 0, 30.0f - heights.DE);
         Florida.position = Florida.position + new Vector3(0, 0, 30.0f - heights.FL);
         Georgia.position = Georgia.position + new Vector3(0, 0, 30.0f - heights.GA);
+        Hawaii.position = Hawaii.position + new Vector3(0, 0, 30.0f - heights.HI);
         Idaho.position = Idaho.position + new Vector3(0, 0, 30.0f - heights.ID);
         Illinois.position = Illinois.position + new Vector3(0, 0, 30.0f - heights.IL);
         Indiana.position = Indiana.position + new Vector3(0, 0, 30.0f - heights.IN);
@@ -237,6 +244,10 @@ public class StateLayoutManager : MonoBehaviour {
         valueScaled = (heights.AZ - min_height) / (max_height - min_height);
         red = min_color + (valueScaled * max_color);
         green = 255 - red;
+        AlaskaMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
+        valueScaled = (heights.AS - min_height) / (max_height - min_height);
+        red = min_color + (valueScaled * max_color);
+        green = 255 - red;
         ArizonaMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
         valueScaled = (heights.AR - min_height) / (max_height - min_height);
         red = min_color + (valueScaled * max_color);
@@ -267,6 +278,10 @@ public class StateLayoutManager : MonoBehaviour {
         green = 255 - red;
         GeorgiaMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
         valueScaled = (heights.ID - min_height) / (max_height - min_height);
+        red = min_color + (valueScaled * max_color);
+        green = 255 - red;
+        HawaiiMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
+        valueScaled = (heights.HI - min_height) / (max_height - min_height);
         red = min_color + (valueScaled * max_color);
         green = 255 - red;
         IdahoMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);

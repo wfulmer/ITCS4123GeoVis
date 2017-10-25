@@ -16,8 +16,9 @@ namespace DataStarter
         // Update is called once per frame
         void Update()
         {
-            if (OVRInput.GetUp(OVRInput.Button.One))
+            if (OVRInput.GetDown(OVRInput.Button.One) || Input.GetButton("Gamepad_A"))
             {
+                Debug.Log("PRESSED");
                 VRInteractiveItem intItem = GetComponent<VRInteractiveItem>();
                 intItem.A();
             }
