@@ -18,11 +18,17 @@ it's chart.
 These pie charts allow the user to look at any wedge to disply the name of the corresponding chemical.
 This will also highlight that chemical on any other pie charts, if it exists, for comparison.
 
+You can also use the arrow keys to change which year of data you're viewing. Currently we've included
+data for the years 2009-2015.
+
 There are several Python scripts included in this repo used to manipulate the data. These scripts expect
 a json file as their input, which we used an online csv-to-json converter to create.
+ - Online converter: http://www.convertcsv.com/csv-to-json.htm
  - StateHeights.py will generate a new json file containing the scaled height for each state
  - StateChemicals.py will generate a new json file containing the top 10 chemical names and values for 
    each state.
+NOTE: If using our data files, the CSV to JSON converter that we used added some strange, hidden characters
+  at the beginning of the files. There are lines at the top of the Python scripts to remove them.
 
 The 3D state sprites are currently generated using a script from the Unity Asset "2D Tilezone", which
 allowed us to generate 3D walls from the 2D sprites.

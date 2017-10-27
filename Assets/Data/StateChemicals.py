@@ -1,8 +1,13 @@
 import json
 import operator
 
-raw_us_data_file = open('2015US.json')
+raw_us_data_file = open('2009US.json')
 raw_json_string = raw_us_data_file.read()
+# For some strange reason, our CSV to JSON converter was adding some weird hidden chars at the 
+# beginning of the files, and the number of hidden chars was different depending on the file...
+# 2015US.json had 4, while the others only had 3... This line will remove them.
+raw_json_string = raw_json_string[3:len(raw_json_string)]
+print "First char: " + str(raw_json_string)[0] + " Last Char: " + str(raw_json_string)[len(raw_json_string)-1]
 data = json.loads(raw_json_string)
 raw_us_data_file.close()
 
@@ -59,5 +64,5 @@ for state in max_chemicals:
 		
 		
 # Write out the mapped json heights
-with open('StateChemicals.json', 'w') as fp:
+with open('StateChemicals2009.json', 'w') as fp:
 	json.dump(max_chemicals, fp)

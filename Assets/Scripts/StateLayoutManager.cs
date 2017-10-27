@@ -28,9 +28,7 @@ public class StateInfo
     public float RI;
     public float NV;
     public float VA;
-    public float GU;  //Guam
     public float CO;
-    public float VI;  //Virgin Islands
     public float CA;
     public float AL;
     public float AS;
@@ -43,7 +41,6 @@ public class StateInfo
     public float MA;
     public float AZ;
     public float ID;
-    public float PR;  //Puerto Rico
     public float ME;
     public float MD;
     public float OK;
@@ -54,16 +51,19 @@ public class StateInfo
     public float MI;
     public float KS;
     public float MT;
-    public float MP;  //Unknown
     public float MS;
     public float SC;
     public float KY;
     public float OR;
     public float SD;
     public float HI;
+    public float AK;
 }
 
 public class StateLayoutManager : MonoBehaviour {
+
+    //Year
+    public int year = 2015;
 
     // Transforms
     public Transform Alabama;
@@ -169,62 +169,92 @@ public class StateLayoutManager : MonoBehaviour {
     public Material WisconsinMaterial;
     public Material WyomingMaterial;
 
-    void Awake()
+    private void Awake()
     {
-        string dataAsJson = File.ReadAllText("Assets/Data/StateHeights.json");
+        RefreshMap();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("up") || Input.GetKeyDown("right"))
+        {
+            year++;
+            if (year > 2015)
+            {
+                year = 2009;
+            }
+            Debug.Log("Increased year to: " + year);
+            RefreshMap();
+        }
+
+        if (Input.GetKeyDown("down") || Input.GetKeyDown("left"))
+        {
+            year--;
+            if (year < 2008)
+            {
+                year = 2015;
+            }
+            Debug.Log("Decreased year to: " + year);
+            RefreshMap();
+        }
+    }
+
+    void RefreshMap()
+    {
+        string dataAsJson = File.ReadAllText("Assets/Data/StateHeights" + year + ".json");
         StateInfo heights = JsonUtility.FromJson<StateInfo>(dataAsJson);
 
         // Set State Z positions based on height
-        Alabama.position = Alabama.position + new Vector3(0, 0, 30.0f - heights.AL);
-        Alaska.position = Alaska.position + new Vector3(0, 0, 30.0f - heights.AS);
-        Arizona.position = Arizona.position + new Vector3(0, 0, 30.0f - heights.AZ);
-        Arkansas.position = Arkansas.position + new Vector3(0, 0, 30.0f - heights.AR);
-        California.position = California.position + new Vector3(0, 0, 30.0f - heights.CA);
-        Colorado.position = Colorado.position + new Vector3(0, 0, 30.0f - heights.CO);
-        Connecticut.position = Connecticut.position + new Vector3(0, 0, 30.0f - heights.CT);
-        Delaware.position = Delaware.position + new Vector3(0, 0, 30.0f - heights.DE);
-        Florida.position = Florida.position + new Vector3(0, 0, 30.0f - heights.FL);
-        Georgia.position = Georgia.position + new Vector3(0, 0, 30.0f - heights.GA);
-        Hawaii.position = Hawaii.position + new Vector3(0, 0, 30.0f - heights.HI);
-        Idaho.position = Idaho.position + new Vector3(0, 0, 30.0f - heights.ID);
-        Illinois.position = Illinois.position + new Vector3(0, 0, 30.0f - heights.IL);
-        Indiana.position = Indiana.position + new Vector3(0, 0, 30.0f - heights.IN);
-        Iowa.position = Iowa.position + new Vector3(0, 0, 30.0f - heights.IA);
-        Kansas.position = Kansas.position + new Vector3(0, 0, 30.0f - heights.KS);
-        Kentucky.position = Kentucky.position + new Vector3(0, 0, 30.0f - heights.KY);
-        Louisiana.position = Louisiana.position + new Vector3(0, 0, 30.0f - heights.LA);
-        Maine.position = Maine.position + new Vector3(0, 0, 30.0f - heights.ME);
-        Maryland.position = Maryland.position + new Vector3(0, 0, 30.0f - heights.MD);
-        Massachusetts.position = Massachusetts.position + new Vector3(0, 0, 30.0f - heights.MA);
-        Michigan.position = Michigan.position + new Vector3(0, 0, 30.0f - heights.MI);
-        Minnesota.position = Minnesota.position + new Vector3(0, 0, 30.0f - heights.MN);
-        Mississippi.position = Mississippi.position + new Vector3(0, 0, 30.0f - heights.MS);
-        Missouri.position = Missouri.position + new Vector3(0, 0, 30.0f - heights.MO);
-        Montana.position = Montana.position + new Vector3(0, 0, 30.0f - heights.MT);
-        Nebraska.position = Nebraska.position + new Vector3(0, 0, 30.0f - heights.NE);
-        Nevada.position = Nevada.position + new Vector3(0, 0, 30.0f - heights.NV);
-        NewHampshire.position = NewHampshire.position + new Vector3(0, 0, 30.0f - heights.NH);
-        NewJersey.position = NewJersey.position + new Vector3(0, 0, 30.0f - heights.NJ);
-        NewMexico.position = NewMexico.position + new Vector3(0, 0, 30.0f - heights.NM);
-        NewYork.position = NewYork.position + new Vector3(0, 0, 30.0f - heights.NY);
-        NorthCarolina.position = NorthCarolina.position + new Vector3(0, 0, 30.0f - heights.NC);
-        NothDakota.position = NothDakota.position + new Vector3(0, 0, 30.0f - heights.ND);
-        Ohio.position = Ohio.position + new Vector3(0, 0, 30.0f - heights.OH);
-        Oklahoma.position = Oklahoma.position + new Vector3(0, 0, 30.0f - heights.OK);
-        Oregon.position = Oregon.position + new Vector3(0, 0, 30.0f - heights.OR);
-        Pennsylvania.position = Pennsylvania.position + new Vector3(0, 0, 30.0f - heights.PA);
-        RhodeIsland.position = RhodeIsland.position + new Vector3(0, 0, 30.0f - heights.RI);
-        SouthCarolina.position = SouthCarolina.position + new Vector3(0, 0, 30.0f - heights.SC);
-        SouthDakota.position = SouthDakota.position + new Vector3(0, 0, 30.0f - heights.SD);
-        Tennessee.position = Tennessee.position + new Vector3(0, 0, 30.0f - heights.TN);
-        Texas.position = Texas.position + new Vector3(0, 0, 30.0f - heights.TX);
-        Utah.position = Utah.position + new Vector3(0, 0, 30.0f - heights.UT);
-        Vermont.position = Vermont.position + new Vector3(0, 0, 30.0f - heights.VT);
-        Virginia.position = Virginia.position + new Vector3(0, 0, 30.0f - heights.VA);
-        Washington.position = Washington.position + new Vector3(0, 0, 30.0f - heights.WA);
-        WestVirginia.position = WestVirginia.position + new Vector3(0, 0, 30.0f - heights.WV);
-        Wisconsin.position = Wisconsin.position + new Vector3(0, 0, 30.0f - heights.WI);
-        Wyoming.position = Wyoming.position + new Vector3(0, 0, 30.0f - heights.WY);
+        Alabama.transform.localScale = new Vector3(Alabama.transform.localScale.x, Alabama.transform.localScale.y, heights.AL);
+        Alaska.transform.localScale = new Vector3(Alaska.transform.localScale.x, Alaska.transform.localScale.y, heights.AS);
+        Arizona.transform.localScale = new Vector3(Arizona.transform.localScale.x, Arizona.transform.localScale.y, heights.AZ * 0.2f);
+        Arkansas.transform.localScale = new Vector3(Arkansas.transform.localScale.x, Arkansas.transform.localScale.y, heights.AR);
+        California.transform.localScale = new Vector3(California.transform.localScale.x, California.transform.localScale.y, heights.CA * 0.2f);
+        Colorado.transform.localScale = new Vector3(Colorado.transform.localScale.x, Colorado.transform.localScale.y, heights.CO);
+        Connecticut.transform.localScale = new Vector3(Connecticut.transform.localScale.x, Connecticut.transform.localScale.y, heights.CT);
+        Delaware.transform.localScale = new Vector3(Delaware.transform.localScale.x, Delaware.transform.localScale.y, heights.DE);
+        Florida.transform.localScale = new Vector3(Florida.transform.localScale.x, Florida.transform.localScale.y, heights.FL);
+        Georgia.transform.localScale = new Vector3(Georgia.transform.localScale.x, Georgia.transform.localScale.y, heights.GA);
+        Hawaii.transform.localScale = new Vector3(Hawaii.transform.localScale.x, Hawaii.transform.localScale.y, heights.HI);
+        Idaho.transform.localScale = new Vector3(Idaho.transform.localScale.x, Idaho.transform.localScale.y, heights.ID);
+        Illinois.transform.localScale = new Vector3(Illinois.transform.localScale.x, Illinois.transform.localScale.y, heights.IL);
+        Indiana.transform.localScale = new Vector3(Indiana.transform.localScale.x, Indiana.transform.localScale.y, heights.IN);
+        Iowa.transform.localScale = new Vector3(Iowa.transform.localScale.x, Iowa.transform.localScale.y, heights.IA);
+        Kansas.transform.localScale = new Vector3(Kansas.transform.localScale.x, Kansas.transform.localScale.y, heights.KS);
+        Kentucky.transform.localScale = new Vector3(Kentucky.transform.localScale.x, Kentucky.transform.localScale.y, heights.KY);
+        Louisiana.transform.localScale = new Vector3(Louisiana.transform.localScale.x, Louisiana.transform.localScale.y, heights.LA);
+        Maine.transform.localScale = new Vector3(Maine.transform.localScale.x, Maine.transform.localScale.y, heights.ME);
+        Maryland.transform.localScale = new Vector3(Maryland.transform.localScale.x, Maryland.transform.localScale.y, heights.MD);
+        Massachusetts.transform.localScale = new Vector3(Massachusetts.transform.localScale.x, Massachusetts.transform.localScale.y, heights.MA);
+        Michigan.transform.localScale = new Vector3(Michigan.transform.localScale.x, Michigan.transform.localScale.y, heights.MI);
+        Minnesota.transform.localScale = new Vector3(Minnesota.transform.localScale.x, Minnesota.transform.localScale.y, heights.MN);
+        Mississippi.transform.localScale = new Vector3(Mississippi.transform.localScale.x, Mississippi.transform.localScale.y, heights.MS);
+        Missouri.transform.localScale = new Vector3(Missouri.transform.localScale.x, Missouri.transform.localScale.y, heights.MO);
+        Montana.transform.localScale = new Vector3(Montana.transform.localScale.x, Montana.transform.localScale.y, heights.MT);
+        Nebraska.transform.localScale = new Vector3(Nebraska.transform.localScale.x, Nebraska.transform.localScale.y, heights.NE);
+        Nevada.transform.localScale = new Vector3(Nevada.transform.localScale.x, Nevada.transform.localScale.y, heights.NV);
+        NewHampshire.transform.localScale = new Vector3(NewHampshire.transform.localScale.x, NewHampshire.transform.localScale.y, heights.NH);
+        NewJersey.transform.localScale = new Vector3(NewJersey.transform.localScale.x, NewJersey.transform.localScale.y, heights.NJ);
+        NewMexico.transform.localScale = new Vector3(NewMexico.transform.localScale.x, NewMexico.transform.localScale.y, heights.NM);
+        NewYork.transform.localScale = new Vector3(NewYork.transform.localScale.x, NewYork.transform.localScale.y, heights.NY);
+        NorthCarolina.transform.localScale = new Vector3(NorthCarolina.transform.localScale.x, NorthCarolina.transform.localScale.y, heights.NC);
+        NothDakota.transform.localScale = new Vector3(NothDakota.transform.localScale.x, NothDakota.transform.localScale.y, heights.ND);
+        Ohio.transform.localScale = new Vector3(Ohio.transform.localScale.x, Ohio.transform.localScale.y, heights.OH);
+        Oklahoma.transform.localScale = new Vector3(Oklahoma.transform.localScale.x, Oklahoma.transform.localScale.y, heights.OK);
+        Oregon.transform.localScale = new Vector3(Oregon.transform.localScale.x, Oregon.transform.localScale.y, heights.OR);
+        Pennsylvania.transform.localScale = new Vector3(Pennsylvania.transform.localScale.x, Pennsylvania.transform.localScale.y, heights.PA);
+        RhodeIsland.transform.localScale = new Vector3(RhodeIsland.transform.localScale.x, RhodeIsland.transform.localScale.y, heights.RI);
+        SouthCarolina.transform.localScale = new Vector3(SouthCarolina.transform.localScale.x, SouthCarolina.transform.localScale.y, heights.SC);
+        SouthDakota.transform.localScale = new Vector3(SouthDakota.transform.localScale.x, SouthDakota.transform.localScale.y, heights.SD);
+        Tennessee.transform.localScale = new Vector3(Tennessee.transform.localScale.x, Tennessee.transform.localScale.y, heights.TN);
+        Texas.transform.localScale = new Vector3(Texas.transform.localScale.x, Texas.transform.localScale.y, heights.TX);
+        Utah.transform.localScale = new Vector3(Utah.transform.localScale.x, Utah.transform.localScale.y, heights.UT);
+        Vermont.transform.localScale = new Vector3(Vermont.transform.localScale.x, Vermont.transform.localScale.y, heights.VT);
+        Virginia.transform.localScale = new Vector3(Virginia.transform.localScale.x, Virginia.transform.localScale.y, heights.VA);
+        Washington.transform.localScale = new Vector3(Washington.transform.localScale.x, Washington.transform.localScale.y, heights.WA);
+        WestVirginia.transform.localScale = new Vector3(WestVirginia.transform.localScale.x, WestVirginia.transform.localScale.y, heights.WV);
+        Wisconsin.transform.localScale = new Vector3(Wisconsin.transform.localScale.x, Wisconsin.transform.localScale.y, heights.WI);
+        Wyoming.transform.localScale = new Vector3(Wyoming.transform.localScale.x, Wyoming.transform.localScale.y, heights.WY);
 
         // Set State colors based on height
         int min_color = 0;
