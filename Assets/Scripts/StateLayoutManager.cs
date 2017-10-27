@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class StateInfo
@@ -64,6 +65,7 @@ public class StateLayoutManager : MonoBehaviour {
 
     //Year
     public int year = 2015;
+    public Text currentYearText;
 
     // Transforms
     public Transform Alabama;
@@ -190,7 +192,7 @@ public class StateLayoutManager : MonoBehaviour {
         if (Input.GetKeyDown("down") || Input.GetKeyDown("left"))
         {
             year--;
-            if (year < 2008)
+            if (year < 2009)
             {
                 year = 2015;
             }
@@ -201,6 +203,7 @@ public class StateLayoutManager : MonoBehaviour {
 
     void RefreshMap()
     {
+        currentYearText.text = "" + year;
         string dataAsJson = File.ReadAllText("Assets/Data/StateHeights" + year + ".json");
         StateInfo heights = JsonUtility.FromJson<StateInfo>(dataAsJson);
 
