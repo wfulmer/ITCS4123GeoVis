@@ -278,6 +278,7 @@ public class ChemicalGraph : MonoBehaviour {
         generated = false;
         transform.position = new Vector3(0, 0, 0);
         target = new Vector3(0, 0, 0);
+        stateTitle.text = "";
     }
 
     public void ExpandMatchingWedges(string chemical)
