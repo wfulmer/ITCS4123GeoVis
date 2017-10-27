@@ -54,9 +54,7 @@ public class AllStateChemInfo
     public StateChemInfo RI;
     public StateChemInfo NV;
     public StateChemInfo VA;
-    public StateChemInfo GU;  //Guam
     public StateChemInfo CO;
-    public StateChemInfo VI;  //Virgin Islands
     public StateChemInfo CA;
     public StateChemInfo AL;
     public StateChemInfo AS;
@@ -69,7 +67,6 @@ public class AllStateChemInfo
     public StateChemInfo MA;
     public StateChemInfo AZ;
     public StateChemInfo ID;
-    public StateChemInfo PR;  //Puerto Rico
     public StateChemInfo ME;
     public StateChemInfo MD;
     public StateChemInfo OK;
@@ -80,12 +77,13 @@ public class AllStateChemInfo
     public StateChemInfo MI;
     public StateChemInfo KS;
     public StateChemInfo MT;
-    public StateChemInfo MP;  //Unknown
     public StateChemInfo MS;
     public StateChemInfo SC;
     public StateChemInfo KY;
     public StateChemInfo OR;
     public StateChemInfo SD;
+    public StateChemInfo AK;
+    public StateChemInfo HI;
 }
 
 public class ChemicalGraph : MonoBehaviour {
@@ -111,10 +109,21 @@ public class ChemicalGraph : MonoBehaviour {
     public bool generated = false;
     public Text stateTitle;
 
-    void Awake () {
-        string dataAsJson = File.ReadAllText("Assets/Data/StateChemicals.json");
+    public StateLayoutManager layout;
+
+    private void Awake()
+    {
+        UpdateDict();
+    }
+
+    void UpdateDict () {
+        // Clear out the dictionary before loading new values
+        statesDict = new Dictionary<string, StateChemInfo>();
+
+        string dataAsJson = File.ReadAllText("Assets/Data/StateChemicals" + layout.year + ".json");
         states = JsonUtility.FromJson<AllStateChemInfo>(dataAsJson);
 
+        statesDict.Add("AK", states.AK);
         statesDict.Add("AL", states.AL);
         statesDict.Add("AZ", states.AZ);
         statesDict.Add("AR", states.AR);
@@ -124,6 +133,7 @@ public class ChemicalGraph : MonoBehaviour {
         statesDict.Add("DE", states.DE);
         statesDict.Add("FL", states.FL);
         statesDict.Add("GA", states.GA);
+        statesDict.Add("HI", states.HI);
         statesDict.Add("ID", states.ID);
         statesDict.Add("IL", states.IL);
         statesDict.Add("IN", states.IN);
@@ -166,6 +176,7 @@ public class ChemicalGraph : MonoBehaviour {
     }
 
     public void genGraph(string stateTag) {
+        UpdateDict();
         StateChemInfo state = statesDict[stateTag];
 
         values[0] = state.value1;
