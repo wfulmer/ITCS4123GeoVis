@@ -233,7 +233,6 @@
     <Compile Include="Assets\OvrAvatar\Scripts\OvrAvatarSkinnedMeshRenderComponent.cs" />
     <Compile Include="Assets\OvrAvatar\Scripts\OvrAvatarSkinnedMeshRenderPBSComponent.cs" />
     <Compile Include="Assets\OvrAvatar\Scripts\OvrAvatarTouchController.cs" />
-    <Compile Include="Assets\Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\ChemicalGraph.cs" />
     <Compile Include="Assets\Scripts\DataConverter.cs" />
@@ -248,6 +247,7 @@
     <Compile Include="Assets\Scripts\VRCameraUI.cs" />
     <Compile Include="Assets\Scripts\VREyeRaycaster.cs" />
     <Compile Include="Assets\Scripts\VRInput.cs" />
+    <Compile Include="Assets\Scripts\VRInputMenu.cs" />
     <Compile Include="Assets\Scripts\VRInteractiveItem.cs" />
     <Compile Include="Assets\Scripts\Wedge.cs" />
     <Compile Include="Assets\Scripts\WedgeInteractiveItem.cs" />

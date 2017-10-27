@@ -178,7 +178,7 @@ public class StateLayoutManager : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown("up") || Input.GetKeyDown("right"))
+        if (Input.GetKeyDown("up") || Input.GetKeyDown("right") || Input.GetButtonDown("Gamepad_B"))
         {
             year++;
             if (year > 2015)
@@ -189,7 +189,7 @@ public class StateLayoutManager : MonoBehaviour {
             RefreshMap();
         }
 
-        if (Input.GetKeyDown("down") || Input.GetKeyDown("left"))
+        if (Input.GetKeyDown("down") || Input.GetKeyDown("left") || Input.GetButtonDown("Gamepad_X"))
         {
             year--;
             if (year < 2009)

@@ -7,7 +7,7 @@ namespace DataStarter
     // It has events that can be subscribed to by classes that need specific input.
     // This class must exist in every scene and so can be attached to the main
     // camera for ease.
-    public class VRInput : MonoBehaviour
+    public class VRInputMenu : MonoBehaviour
     {
         //Swipe directions
         public enum SwipeDirection
@@ -26,7 +26,7 @@ namespace DataStarter
         public event Action OnUp;                                   // Called when Fire1 is released.
         public event Action OnDoubleClick;                          // Called when a double click is detected.
         public event Action OnCancel;                               // Called when Cancel is pressed.
-
+        //add events here and vr interactiveitem and exampleinteractiveitem
 
         [SerializeField] private float m_DoubleClickTime = 0.3f;    //The max time allowed between double clicks
         [SerializeField] private float m_SwipeWidth = 0.3f;         //The width of a swipe
@@ -53,7 +53,7 @@ namespace DataStarter
             // Set the default swipe to be none.
             SwipeDirection swipe = SwipeDirection.NONE;
 
-            if (Input.GetButtonDown("Gamepad_A") || Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Gamepad_A"))
             {
                 // When Fire1 is pressed record the position of the mouse.
                 m_MouseDownPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -64,7 +64,7 @@ namespace DataStarter
             }
 
             // This if statement is to gather information about the mouse when the button is up.
-            if (Input.GetButtonUp ("Gamepad_A") || Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp ("Gamepad_A"))
             {
                 // When Fire1 is released record the position of the mouse.
                 m_MouseUpPosition = new Vector2 (Input.mousePosition.x, Input.mousePosition.y);
@@ -82,7 +82,7 @@ namespace DataStarter
                 OnSwipe(swipe);
 
             // This if statement is to trigger events based on the information gathered before.
-            if(Input.GetButtonUp ("Gamepad_A") || Input.GetButtonUp("Fire1"))
+            if(Input.GetButtonUp ("Gamepad_A"))
             {
                 // If anything has subscribed to OnUp call it.
                 if (OnUp != null)
