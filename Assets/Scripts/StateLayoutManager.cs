@@ -171,6 +171,10 @@ public class StateLayoutManager : MonoBehaviour {
     public Material WisconsinMaterial;
     public Material WyomingMaterial;
 
+    public ChemicalGraph upper;
+    public ChemicalGraph mid;
+    public ChemicalGraph lower;
+
     private void Awake()
     {
         RefreshMap();
@@ -187,6 +191,18 @@ public class StateLayoutManager : MonoBehaviour {
             }
             Debug.Log("Increased year to: " + year);
             RefreshMap();
+            if (upper.generated)
+            {
+                upper.RefreshGraph();
+            }
+            if (mid.generated)
+            {
+                mid.RefreshGraph();
+            }
+            if (lower.generated)
+            {
+                lower.RefreshGraph();
+            }
         }
 
         if (Input.GetKeyDown("down") || Input.GetKeyDown("left") || Input.GetButtonDown("Gamepad_X"))
@@ -198,6 +214,18 @@ public class StateLayoutManager : MonoBehaviour {
             }
             Debug.Log("Decreased year to: " + year);
             RefreshMap();
+            if (upper.generated)
+            {
+                upper.RefreshGraph();
+            }
+            if (mid.generated)
+            {
+                mid.RefreshGraph();
+            }
+            if (lower.generated)
+            {
+                lower.RefreshGraph();
+            }
         }
     }
 

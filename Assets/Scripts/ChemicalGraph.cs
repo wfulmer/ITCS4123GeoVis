@@ -101,6 +101,7 @@ public class ChemicalGraph : MonoBehaviour {
     public Vector3 lowerTarget;
     private Vector3 target;
     public float expandSpeed;
+    private string lastState;
 
     //Sibling graphs
     public ChemicalGraph sibling1;
@@ -177,6 +178,7 @@ public class ChemicalGraph : MonoBehaviour {
 
     public void genGraph(string stateTag) {
         UpdateDict();
+        lastState = stateTag;
         StateChemInfo state = statesDict[stateTag];
 
         values[0] = state.value1;
@@ -344,5 +346,13 @@ public class ChemicalGraph : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void RefreshGraph()
+    {
+        Vector3 currentPos = transform.position;
+        Clear();
+        genGraph(lastState);
+        transform.position = currentPos;
     }
 }

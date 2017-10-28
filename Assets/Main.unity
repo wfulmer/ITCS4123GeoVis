@@ -6521,6 +6521,9 @@ MonoBehaviour:
     type: 2}
   WisconsinMaterial: {fileID: 2100000, guid: 731ac7abd928fb848b6cbc8022e59efb, type: 2}
   WyomingMaterial: {fileID: 2100000, guid: 4276df7200fda5f4da8e0a856f96bd4b, type: 2}
+  upper: {fileID: 1868667116}
+  mid: {fileID: 301463668}
+  lower: {fileID: 963777617}
 --- !u!4 &1330098973
 Transform:
   m_ObjectHideFlags: 0
