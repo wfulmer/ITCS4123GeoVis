@@ -243,6 +243,7 @@
     <Compile Include="Assets\Scripts\SelectionRadial.cs" />
     <Compile Include="Assets\Scripts\SelectionSlider.cs" />
     <Compile Include="Assets\Scripts\StateLayoutManager.cs" />
+    <Compile Include="Assets\Scripts\StatePercentages.cs" />
     <Compile Include="Assets\Scripts\UIFader.cs" />
     <Compile Include="Assets\Scripts\VRCameraUI.cs" />
     <Compile Include="Assets\Scripts\VREyeRaycaster.cs" />
