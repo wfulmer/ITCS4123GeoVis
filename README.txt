@@ -27,9 +27,7 @@ a json file as their input, which we used an online csv-to-json converter to cre
  - StateHeights.py will generate a new json file containing the scaled height for each state
  - StateChemicals.py will generate a new json file containing the top 10 chemical names and values for 
    each state.
+ - StatePercentages.py will calculate the percentage of the total releases for each of the boolean values in 
+   the dataset for each state. (FEDERAL_FACILITY, METAL, CLEAR_AIR_ACT_CHEMICAL, CARCINOGEN)
 NOTE: If using our data files, the CSV to JSON converter that we used added some strange, hidden characters
   at the beginning of the files. There are lines at the top of the Python scripts to remove them.
-
-The 3D state sprites are currently generated using a script from the Unity Asset "2D Tilezone", which
-allowed us to generate 3D walls from the 2D sprites.
-https://www.assetstore.unity3d.com/en/#!/content/34147
