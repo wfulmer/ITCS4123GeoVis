@@ -31,3 +31,7 @@ a json file as their input, which we used an online csv-to-json converter to cre
    the dataset for each state. (FEDERAL_FACILITY, METAL, CLEAR_AIR_ACT_CHEMICAL, CARCINOGEN)
 NOTE: If using our data files, the CSV to JSON converter that we used added some strange, hidden characters
   at the beginning of the files. There are lines at the top of the Python scripts to remove them.
+  
+WARNING: There is a bit of an issue with the pie chart interaction when using the Oculus Rift. It appears
+the cursor is being offset when using the headset, so be aware that the colliders for the pie chart wedges
+will not work correctly until we can track down this bug.
