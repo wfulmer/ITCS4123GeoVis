@@ -19,7 +19,7 @@ These pie charts allow the user to look at any wedge to disply the name of the c
 This will also highlight that chemical on any other pie charts, if it exists, for comparison.
 
 You can also use the arrow keys to change which year of data you're viewing. Currently we've included
-data for the years 2009-2015.
+data for the years 2009-2015. There is a slider located below the US map indicating the current year.
 
 There are several Python scripts included in this repo used to manipulate the data. These scripts expect
 a json file as their input, which we used an online csv-to-json converter to create.

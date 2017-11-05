@@ -66,6 +66,7 @@ public class StateLayoutManager : MonoBehaviour {
     //Year
     public int year = 2015;
     public Text currentYearText;
+    public Transform yearSliderBox;
 
     // Transforms
     public Transform Alabama;
@@ -188,6 +189,13 @@ public class StateLayoutManager : MonoBehaviour {
             if (year > 2015)
             {
                 year = 2009;
+                yearSliderBox.position = new Vector3(-220, yearSliderBox.position.y, yearSliderBox.position.z);
+                currentYearText.transform.position = currentYearText.transform.position - new Vector3(380, 0, 0);
+            }
+            else
+            {
+                yearSliderBox.position = yearSliderBox.position + new Vector3((380f / 6f), 0, 0);
+                currentYearText.transform.position = currentYearText.transform.position + new Vector3((380f / 6f), 0, 0);
             }
             Debug.Log("Increased year to: " + year);
             RefreshMap();
@@ -211,6 +219,13 @@ public class StateLayoutManager : MonoBehaviour {
             if (year < 2009)
             {
                 year = 2015;
+                yearSliderBox.position = new Vector3(160, yearSliderBox.position.y, yearSliderBox.position.z);
+                currentYearText.transform.position = currentYearText.transform.position + new Vector3(380, 0, 0);
+            }
+            else
+            {
+                yearSliderBox.position = yearSliderBox.position - new Vector3((380f / 6f), 0, 0);
+                currentYearText.transform.position = currentYearText.transform.position - new Vector3((380f / 6f), 0, 0);
             }
             Debug.Log("Decreased year to: " + year);
             RefreshMap();
