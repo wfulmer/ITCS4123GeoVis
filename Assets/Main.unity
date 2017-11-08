@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.4964127, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -774,8 +774,8 @@ Camera:
   m_GameObject: {fileID: 223488980}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1529,7 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.97794116, g: 0.97794116, b: 0.97794116, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4633,7 +4633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6710,10 +6710,66 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330098971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 347c07024900e134f87d05aa2e85b7ee, type: 3}
+  m_Script: {fileID: 11500000, guid: a1a458e0bc28df345aefa21a198aa6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   year: 2015
+  AlabamaMaterial: {fileID: 2100000, guid: 46e1187d8eaba1b489bdc0068593974b, type: 2}
+  AlaskaMaterial: {fileID: 2100000, guid: 59484b5a1cc109f46a7888e1c1a8e494, type: 2}
+  ArizonaMaterial: {fileID: 2100000, guid: c12d4399b95a3db49ad6de3964817649, type: 2}
+  ArkansasMaterial: {fileID: 2100000, guid: ae1aff5f7c5038d44ab95e439faa4fbd, type: 2}
+  CaliforniaMaterial: {fileID: 2100000, guid: 3e671b5a68be19e479bd7cc38c9bd60e, type: 2}
+  ColoradoMaterial: {fileID: 2100000, guid: 9310df68802a23d4db1de0c05ba7ccea, type: 2}
+  ConnecticutMaterial: {fileID: 2100000, guid: 49fda76108917e1499fbcd29dee7ed2f, type: 2}
+  DelawareMaterial: {fileID: 2100000, guid: f4ae70b9960e2c64dadf17ba94350941, type: 2}
+  FloridaMaterial: {fileID: 2100000, guid: ffc02e8da9493f74ca357bf7b1fe1df4, type: 2}
+  GeorgiaMaterial: {fileID: 2100000, guid: 5814a8c854e3d8a45a2ea47c2527d715, type: 2}
+  HawaiiMaterial: {fileID: 2100000, guid: 8ef3d10341cc0de4a83bea83f08f0990, type: 2}
+  IdahoMaterial: {fileID: 2100000, guid: 2ace152ab04dee94f8ce9b4e5391c82e, type: 2}
+  IllinoisMaterial: {fileID: 2100000, guid: a973d018fb1b36c43b872bb763444aaa, type: 2}
+  IndianaMaterial: {fileID: 2100000, guid: c376edf4993c8044cbb1cf0533f2a7a0, type: 2}
+  IowaMaterial: {fileID: 2100000, guid: 97c5df43afead15469d4a64a2cd4f476, type: 2}
+  KansasMaterial: {fileID: 2100000, guid: 5773b50d381fdaa4585ffaf3cbb6ae54, type: 2}
+  KentuckyMaterial: {fileID: 2100000, guid: f89a3fa1660fbea419b987587253d6c2, type: 2}
+  LouisianaMaterial: {fileID: 2100000, guid: a7c420d1c61936242b6573e90992385b, type: 2}
+  MaineMaterial: {fileID: 2100000, guid: 1e746e8d9f9cbe24296acd25e20605ac, type: 2}
+  MarylandMaterial: {fileID: 2100000, guid: 8fccca1bf7183044f903f6a61b57c612, type: 2}
+  MassachusettsMaterial: {fileID: 2100000, guid: 9a0bccde8674ae04b810b5cbc742f449,
+    type: 2}
+  MichiganMaterial: {fileID: 2100000, guid: 04eda79412623a54e97314220face9f4, type: 2}
+  MinnesotaMaterial: {fileID: 2100000, guid: 540da3307652dbb48a813c206718b059, type: 2}
+  MississippiMaterial: {fileID: 2100000, guid: f09eb35c33d817446810231de0f45e54, type: 2}
+  MissouriMaterial: {fileID: 2100000, guid: 806488e62f6fe8147a8caafb49ab7d96, type: 2}
+  MontanaMaterial: {fileID: 2100000, guid: d174302eb3a5bf34fb39336987e518fe, type: 2}
+  NebraskaMaterial: {fileID: 2100000, guid: a558da8dc480351498d7dffa6f30af01, type: 2}
+  NevadaMaterial: {fileID: 2100000, guid: ca6587e8e597a1546a44999f58fdb01e, type: 2}
+  NewHampshireMaterial: {fileID: 2100000, guid: b14007c398f174a4cb78e0146f370ae5,
+    type: 2}
+  NewJerseyMaterial: {fileID: 2100000, guid: aaf02466eedf6ed4990226bf0617f306, type: 2}
+  NewMexicoMaterial: {fileID: 2100000, guid: ee28fc33dc635da44a95e843806e7dce, type: 2}
+  NewYorkMaterial: {fileID: 2100000, guid: 507d5e9c0524a6f4383fae80a78940f8, type: 2}
+  NorthCarolinaMaterial: {fileID: 2100000, guid: 2937dfd49631b9247b953b182af80899,
+    type: 2}
+  NorthDakotaMaterial: {fileID: 2100000, guid: dc5e6746e37194747994cbf2b95fd70c, type: 2}
+  OhioMaterial: {fileID: 2100000, guid: c4070f80fb9de2d46ae0c574d6f3543a, type: 2}
+  OklahomaMaterial: {fileID: 2100000, guid: 66a1bdce5e907074daaa1703bced751f, type: 2}
+  OregonMaterial: {fileID: 2100000, guid: 618700270e466274d83ca6fcbc6f953a, type: 2}
+  PennsylvaniaMaterial: {fileID: 2100000, guid: a0d557768a950804bad63817c6191bc5,
+    type: 2}
+  RhodeIslandMaterial: {fileID: 2100000, guid: d4392d16cbb08d247ba32f5f87abb1f1, type: 2}
+  SouthCarolinaMaterial: {fileID: 2100000, guid: 0aad6430d31344049a4355426b9ba1de,
+    type: 2}
+  SouthDakotaMaterial: {fileID: 2100000, guid: 6032cc7857eea9948a6d8abfc629deb7, type: 2}
+  TennesseeMaterial: {fileID: 2100000, guid: 79652e1356445b649bd58d6b7a257e6b, type: 2}
+  TexasMaterial: {fileID: 2100000, guid: ed071a194da6127418a912b9cf1ffb94, type: 2}
+  UtahMaterial: {fileID: 2100000, guid: de67f4a8aba5c024195c9133b2244662, type: 2}
+  VermontMaterial: {fileID: 2100000, guid: 6e747f4b67fb7064787067f3d2a2babf, type: 2}
+  VirginiaMaterial: {fileID: 2100000, guid: 464def900dffcee4c9fab975d65d5f4f, type: 2}
+  WashingtonMaterial: {fileID: 2100000, guid: c0fd6644c7082e243a5df000a5362908, type: 2}
+  WestVirginiaMaterial: {fileID: 2100000, guid: 1754cbfcf9b228d409b296fc4e5b4d6b,
+    type: 2}
+  WisconsinMaterial: {fileID: 2100000, guid: 731ac7abd928fb848b6cbc8022e59efb, type: 2}
+  WyomingMaterial: {fileID: 2100000, guid: 4276df7200fda5f4da8e0a856f96bd4b, type: 2}
 --- !u!1001 &1367110787
 Prefab:
   m_ObjectHideFlags: 0
@@ -7909,7 +7965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.621, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7983,7 +8039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8057,7 +8113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8537,7 +8593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -8751,7 +8807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9419,7 +9475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.99264705, g: 0.99264705, b: 0.99264705, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

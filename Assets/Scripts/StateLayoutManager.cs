@@ -317,11 +317,11 @@ public class StateLayoutManager : MonoBehaviour {
         red = min_color + (valueScaled * max_color);
         green = 255 - red;
         AlabamaMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
-        valueScaled = (heights.AZ - min_height) / (max_height - min_height);
+        valueScaled = (heights.AK - min_height) / (max_height - min_height);
         red = min_color + (valueScaled * max_color);
         green = 255 - red;
         AlaskaMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
-        valueScaled = (heights.AS - min_height) / (max_height - min_height);
+        valueScaled = (heights.AZ - min_height) / (max_height - min_height);
         red = min_color + (valueScaled * max_color);
         green = 255 - red;
         ArizonaMaterial.color = new Color(red / 255.0f, green / 255.0f, 0, 1);
