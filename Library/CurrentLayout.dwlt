@@ -325,19 +325,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets/State Obj
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Materials
+  - Assets/State Obj
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\willi\Documents\DeviceStarter
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ec320000
-    m_LastClickedID: 13036
-    m_ExpandedIDs: 000000002a32000000ca9a3bffffff7f
+    m_SelectedIDs: 542c0000
+    m_LastClickedID: 11348
+    m_ExpandedIDs: 00000000c8270000542c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -365,7 +365,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002a320000
+    m_ExpandedIDs: 00000000c8270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -481,25 +481,25 @@ MonoBehaviour:
     height: 552
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4c360000
-    m_LastClickedID: 13900
-    m_ExpandedIDs: 22d1ffff00000000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 18fcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Arizona
+      m_OriginalName: Arizona
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 12554
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 4}
     m_SearchString: 
   m_ExpandedScenes:
   - Main
@@ -533,14 +533,14 @@ MonoBehaviour:
     width: 1148
     height: 552
   m_SceneLighting: 1
-  lastFramingTime: 390.3469479681557
+  lastFramingTime: 184494.93939205463
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -73.79382, y: 42.57953, z: 11.70993}
+    m_Target: {x: -37.284492, y: 65.68956, z: -214.83282}
     speed: 2
-    m_Value: {x: -73.79382, y: 42.57953, z: 11.70993}
+    m_Value: {x: -37.284492, y: 65.68956, z: -214.83282}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -563,13 +563,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.10212999, y: 0.0050704847, z: -0.0005205857, w: -0.994758}
+    m_Target: {x: -0.042286966, y: -0.021881513, z: 0.0009263508, w: -0.9988655}
     speed: 2
-    m_Value: {x: -0.10212998, y: 0.0050704847, z: -0.0005205857, w: -0.99475795}
+    m_Value: {x: -0.042286966, y: -0.021881513, z: 0.0009263508, w: -0.9988655}
   m_Size:
-    m_Target: 381.45337
+    m_Target: 37.57649
     speed: 2
-    m_Value: 381.45337
+    m_Value: 37.57649
   m_Ortho:
     m_Target: 0
     speed: 2
