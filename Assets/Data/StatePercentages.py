@@ -73,6 +73,7 @@ for state in state_totals:
 	state_percents[state] = {}
 	for key in state_totals[state]:
 		if key != "TOTAL":
+			state_percents[state][str(key + "_TOTAL")] = state_totals[state][key]
 			state_percents[state][key] = (state_totals[state][key] / state_totals[state]["TOTAL"]) * 100.0
 	
 # Write out the percentages
