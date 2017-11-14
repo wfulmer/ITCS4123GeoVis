@@ -2541,4 +2541,14 @@ public class StatePercentages : MonoBehaviour {
         }
         //WyomingMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
     }
+
+    void MetalMap()
+    {
+
+    }
+
+    void FederalMap()
+    {
+
+    }
 }
