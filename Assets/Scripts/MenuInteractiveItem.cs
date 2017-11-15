@@ -13,7 +13,7 @@ namespace DataStarter
         [SerializeField] private VRInteractiveItem m_InteractiveItem;
         [SerializeField] private Renderer m_Renderer;
 
-        public Canvas canvas;
+        //public Canvas canvas;
 
         private void Awake()
         {
@@ -58,7 +58,21 @@ namespace DataStarter
         //Handle the Click event
         private void HandleClick()
         {
-            //how to make transparent?
+            if (gameObject.CompareTag("Clean")) {
+                StatePercents.type = 0;
+            }else if (gameObject.CompareTag("Carc"))
+            {
+                StatePercents.type = 1;
+            }
+            else if (gameObject.CompareTag("Metals"))
+            {
+                StatePercents.type = 2;
+            }
+            else if (gameObject.CompareTag("Fed"))
+            {
+                StatePercents.type = 3;
+            }
+
         }
 
 

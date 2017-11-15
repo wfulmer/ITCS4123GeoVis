@@ -54,6 +54,10 @@ TagManager:
   - WY
   - AK
   - HI
+  - Carc
+  - Clean
+  - Fed
+  - Metals
   layers:
   - Default
   - TransparentFX

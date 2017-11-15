@@ -71,7 +71,7 @@ public class StatePercents
     public float CARCINOGEN;
     public float METAL;
     public float FEDERAL_FACILITY;
-    
+    public static int type = 5;
 }
 
 public class StatePercentages : MonoBehaviour {
@@ -141,18 +141,12 @@ public class StatePercentages : MonoBehaviour {
     {
         //ClearActMap();
         //CarcMap();
+        //MetalMap();
+        //FederalMap();
     }
 
     void Update()
     {
-        int i = 0;
-        /*
-        if (true)
-        {//somehow change which type. if else system based on buttun press?
-            i = 0;
-            ClearActMap(i);
-        }
-        */
         if (Input.GetKeyDown("up") || Input.GetKeyDown("right") || Input.GetButtonDown("Gamepad_B"))
         {
             year++;
@@ -161,8 +155,26 @@ public class StatePercentages : MonoBehaviour {
                 year = 2009;
             }
             Debug.Log("Increased year to: " + year);
+            
+            if (StatePercents.type == 0)
+            {
+                ClearActMap();
+            } else if (StatePercents.type == 1)
+            {
+                CarcMap();
+            }
+            else if (StatePercents.type == 2)
+            {
+                MetalMap();
+            }
+            else if (StatePercents.type == 3)
+            {
+                FederalMap();
+            }
             //ClearActMap();
             //CarcMap();
+            //MetalMap();
+            //FederalMap();
         }
 
         if (Input.GetKeyDown("down") || Input.GetKeyDown("left") || Input.GetButtonDown("Gamepad_X"))
@@ -173,12 +185,30 @@ public class StatePercentages : MonoBehaviour {
                 year = 2015;
             }
             Debug.Log("Decreased year to: " + year);
+            if (StatePercents.type == 0)
+            {
+                ClearActMap();
+            }
+            else if (StatePercents.type == 1)
+            {
+                CarcMap();
+            }
+            else if (StatePercents.type == 2)
+            {
+                MetalMap();
+            }
+            else if (StatePercents.type == 3)
+            {
+                FederalMap();
+            }
             //ClearActMap();
             //CarcMap();
+            //MetalMap();
+            //FederalMap();
         }
     }
 
-    void ClearActMap()
+    void ClearActMap()//blue to yellow
     {
         string dataAsJson = File.ReadAllText("Assets/Data/StatePercentages" + year + ".json");
         AllStateReleasePercentages percents = JsonUtility.FromJson<AllStateReleasePercentages>(dataAsJson);
@@ -243,7 +273,7 @@ public class StatePercentages : MonoBehaviour {
         }
         //Debug.Log("Alabama:" + valueScaled);
         //AlabamaMaterial.color = new Color(red, green, blue, 1);
-        valueScaled = (percents.AK.CLEAR_AIR_ACT_CHEMICAL/ 100) * 255;
+        valueScaled = percents.AK.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -267,7 +297,7 @@ public class StatePercentages : MonoBehaviour {
         }
         //AlaskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
         //AlaskaMaterial.color = new Color(0, 0, 255, 1);
-        valueScaled = (percents.AZ.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.AZ.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -290,7 +320,7 @@ public class StatePercentages : MonoBehaviour {
             ArizonaMaterial.color = new Color(red, green, blue, 1);
         }
         //ArizonaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.AR.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.AR.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -313,7 +343,7 @@ public class StatePercentages : MonoBehaviour {
             ArkansasMaterial.color = new Color(red, green, blue, 1);
         }
         //ArkansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.CA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.CA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -336,7 +366,7 @@ public class StatePercentages : MonoBehaviour {
             CaliforniaMaterial.color = new Color(red, green, blue, 1);
         }
         //CaliforniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.CO.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.CO.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -359,7 +389,7 @@ public class StatePercentages : MonoBehaviour {
             ColoradoMaterial.color = new Color(red, green, blue, 1);
         }
         //ColoradoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.CT.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.CT.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -382,7 +412,7 @@ public class StatePercentages : MonoBehaviour {
             ConnecticutMaterial.color = new Color(red, green, blue, 1);
         }
         //ConnecticutMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.DE.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.DE.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -405,7 +435,7 @@ public class StatePercentages : MonoBehaviour {
             DelawareMaterial.color = new Color(red, green, blue, 1);
         }
         //DelawareMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.FL.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.FL.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -428,7 +458,7 @@ public class StatePercentages : MonoBehaviour {
             FloridaMaterial.color = new Color(red, green, blue, 1);
         }
         //FloridaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.GA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.GA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -451,7 +481,7 @@ public class StatePercentages : MonoBehaviour {
             GeorgiaMaterial.color = new Color(red, green, blue, 1);
         }
         //GeorgiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.HI.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.HI.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -474,7 +504,7 @@ public class StatePercentages : MonoBehaviour {
             HawaiiMaterial.color = new Color(red, green, blue, 1);
         }
         //HawaiiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.ID.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.ID.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -497,7 +527,7 @@ public class StatePercentages : MonoBehaviour {
             IdahoMaterial.color = new Color(red, green, blue, 1);
         }
         //IdahoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.IL.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.IL.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -520,7 +550,7 @@ public class StatePercentages : MonoBehaviour {
             IllinoisMaterial.color = new Color(red, green, blue, 1);
         }
         //IllinoisMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.IN.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.IN.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -543,7 +573,7 @@ public class StatePercentages : MonoBehaviour {
             IndianaMaterial.color = new Color(red, green, blue, 1);
         }
         //IndianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.IA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.IA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -566,7 +596,7 @@ public class StatePercentages : MonoBehaviour {
             IowaMaterial.color = new Color(red, green, blue, 1);
         }
         //IowaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.KS.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.KS.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -589,7 +619,7 @@ public class StatePercentages : MonoBehaviour {
             KansasMaterial.color = new Color(red, green, blue, 1);
         }
         //KansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.KY.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.KY.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -612,7 +642,7 @@ public class StatePercentages : MonoBehaviour {
             KentuckyMaterial.color = new Color(red, green, blue, 1);
         }
         //KentuckyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.LA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.LA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -635,7 +665,7 @@ public class StatePercentages : MonoBehaviour {
             LouisianaMaterial.color = new Color(red, green, blue, 1);
         }
         //LouisianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.ME.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.ME.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -658,7 +688,7 @@ public class StatePercentages : MonoBehaviour {
             MaineMaterial.color = new Color(red, green, blue, 1);
         }
         //MaineMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MD.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MD.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -681,7 +711,7 @@ public class StatePercentages : MonoBehaviour {
             MarylandMaterial.color = new Color(red, green, blue, 1);
         }
         //MarylandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -704,7 +734,7 @@ public class StatePercentages : MonoBehaviour {
             MassachusettsMaterial.color = new Color(red, green, blue, 1);
         }
         //MassachusettsMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MI.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MI.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -727,7 +757,7 @@ public class StatePercentages : MonoBehaviour {
             MichiganMaterial.color = new Color(red, green, blue, 1);
         }
         //MichiganMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MN.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MN.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -750,7 +780,7 @@ public class StatePercentages : MonoBehaviour {
             MinnesotaMaterial.color = new Color(red, green, blue, 1);
         }
         //MinnesotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MS.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MS.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -773,7 +803,7 @@ public class StatePercentages : MonoBehaviour {
             MississippiMaterial.color = new Color(red, green, blue, 1);
         }
         //MississippiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MO.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MO.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -796,7 +826,7 @@ public class StatePercentages : MonoBehaviour {
             MissouriMaterial.color = new Color(red, green, blue, 1);
         }
         //MissouriMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MT.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.MT.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -819,7 +849,7 @@ public class StatePercentages : MonoBehaviour {
             MontanaMaterial.color = new Color(red, green, blue, 1);
         }
         //MontanaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NE.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NE.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -842,7 +872,7 @@ public class StatePercentages : MonoBehaviour {
             NebraskaMaterial.color = new Color(red, green, blue, 1);
         }
         //NebraskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NV.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NV.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -865,7 +895,7 @@ public class StatePercentages : MonoBehaviour {
             NevadaMaterial.color = new Color(red, green, blue, 1);
         }
         //NevadaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NH.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NH.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -888,7 +918,7 @@ public class StatePercentages : MonoBehaviour {
             NewHampshireMaterial.color = new Color(red, green, blue, 1);
         }
         //NewHampshireMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NJ.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NJ.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -911,7 +941,7 @@ public class StatePercentages : MonoBehaviour {
             NewJerseyMaterial.color = new Color(red, green, blue, 1);
         }
         //NewJerseyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NM.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NM.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -934,7 +964,7 @@ public class StatePercentages : MonoBehaviour {
             NewMexicoMaterial.color = new Color(red, green, blue, 1);
         }
         //NewMexicoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NY.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NY.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -957,7 +987,7 @@ public class StatePercentages : MonoBehaviour {
             NewYorkMaterial.color = new Color(red, green, blue, 1);
         }
         //NewYorkMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NC.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.NC.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -980,7 +1010,7 @@ public class StatePercentages : MonoBehaviour {
             NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
         }
         //NorthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.ND.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.ND.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1003,7 +1033,7 @@ public class StatePercentages : MonoBehaviour {
             NorthDakotaMaterial.color = new Color(red, green, blue, 1);
         }
         //NorthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.OH.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.OH.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1026,7 +1056,7 @@ public class StatePercentages : MonoBehaviour {
             OhioMaterial.color = new Color(red, green, blue, 1);
         }
         //OhioMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.OK.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.OK.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1049,7 +1079,7 @@ public class StatePercentages : MonoBehaviour {
             OklahomaMaterial.color = new Color(red, green, blue, 1);
         }
         //OklahomaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.OR.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.OR.CLEAR_AIR_ACT_CHEMICAL;
         Debug.Log("Oregon: " + valueScaled);
         if (valueScaled < 50)
         {
@@ -1073,7 +1103,7 @@ public class StatePercentages : MonoBehaviour {
             OregonMaterial.color = new Color(red, green, blue, 1);
         }
         //OregonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.PA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.PA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1096,7 +1126,7 @@ public class StatePercentages : MonoBehaviour {
             PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
         }
         //PennsylvaniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.RI.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.RI.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1119,7 +1149,7 @@ public class StatePercentages : MonoBehaviour {
             RhodeIslandMaterial.color = new Color(red, green, blue, 1);
         }
         //RhodeIslandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.SC.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.SC.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1142,7 +1172,7 @@ public class StatePercentages : MonoBehaviour {
             SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
         }
         //SouthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.SD.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.SD.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1165,7 +1195,7 @@ public class StatePercentages : MonoBehaviour {
             SouthDakotaMaterial.color = new Color(red, green, blue, 1);
         }
         //SouthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.TN.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.TN.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1188,7 +1218,7 @@ public class StatePercentages : MonoBehaviour {
             TennesseeMaterial.color = new Color(red, green, blue, 1);
         }
         //TennesseeMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.TX.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.TX.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1211,7 +1241,7 @@ public class StatePercentages : MonoBehaviour {
             TexasMaterial.color = new Color(red, green, blue, 1);
         }
         //TexasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.UT.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.UT.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1234,7 +1264,7 @@ public class StatePercentages : MonoBehaviour {
             UtahMaterial.color = new Color(red, green, blue, 1);
         }
         //UtahMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.VT.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.VT.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1257,7 +1287,7 @@ public class StatePercentages : MonoBehaviour {
             VermontMaterial.color = new Color(red, green, blue, 1);
         }
         //VermontMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.VA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.VA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1280,7 +1310,7 @@ public class StatePercentages : MonoBehaviour {
             VirginiaMaterial.color = new Color(red, green, blue, 1);
         }
         //VirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WA.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.WA.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1303,7 +1333,7 @@ public class StatePercentages : MonoBehaviour {
             WashingtonMaterial.color = new Color(red, green, blue, 1);
         }
         //WashingtonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WV.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.WV.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1326,7 +1356,7 @@ public class StatePercentages : MonoBehaviour {
             WestVirginiaMaterial.color = new Color(red, green, blue, 1);
         }
         //WestVirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WI.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.WI.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1349,7 +1379,7 @@ public class StatePercentages : MonoBehaviour {
             WisconsinMaterial.color = new Color(red, green, blue, 1);
         }
         //WisconsinMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WY.CLEAR_AIR_ACT_CHEMICAL / 100) * 255;
+        valueScaled = percents.WY.CLEAR_AIR_ACT_CHEMICAL;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1375,7 +1405,7 @@ public class StatePercentages : MonoBehaviour {
         
     }
 
-    void CarcMap()
+    void CarcMap()//blue to magenta
     {
         string dataAsJson = File.ReadAllText("Assets/Data/StatePercentages" + year + ".json");
         AllStateReleasePercentages percents = JsonUtility.FromJson<AllStateReleasePercentages>(dataAsJson);
@@ -1412,7 +1442,7 @@ public class StatePercentages : MonoBehaviour {
         }
         //Debug.Log("Alabama:" + valueScaled);
         //AlabamaMaterial.color = new Color(red, green, blue, 1);
-        valueScaled = (percents.AK.CARCINOGEN / 100) * 255;
+        valueScaled = percents.AK.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1436,7 +1466,7 @@ public class StatePercentages : MonoBehaviour {
         }
         //AlaskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
         //AlaskaMaterial.color = new Color(0, 0, 255, 1);
-        valueScaled = (percents.AZ.CARCINOGEN / 100) * 255;
+        valueScaled = percents.AZ.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1459,7 +1489,7 @@ public class StatePercentages : MonoBehaviour {
             ArizonaMaterial.color = new Color(red, green, blue, 1);
         }
         //ArizonaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.AR.CARCINOGEN / 100) * 255;
+        valueScaled = percents.AR.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1482,7 +1512,7 @@ public class StatePercentages : MonoBehaviour {
             ArkansasMaterial.color = new Color(red, green, blue, 1);
         }
         //ArkansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.CA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.CA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1505,7 +1535,7 @@ public class StatePercentages : MonoBehaviour {
             CaliforniaMaterial.color = new Color(red, green, blue, 1);
         }
         //CaliforniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.CO.CARCINOGEN / 100) * 255;
+        valueScaled = percents.CO.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1528,7 +1558,7 @@ public class StatePercentages : MonoBehaviour {
             ColoradoMaterial.color = new Color(red, green, blue, 1);
         }
         //ColoradoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.CT.CARCINOGEN / 100) * 255;
+        valueScaled = percents.CT.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1551,7 +1581,7 @@ public class StatePercentages : MonoBehaviour {
             ConnecticutMaterial.color = new Color(red, green, blue, 1);
         }
         //ConnecticutMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.DE.CARCINOGEN / 100) * 255;
+        valueScaled = percents.DE.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1574,7 +1604,7 @@ public class StatePercentages : MonoBehaviour {
             DelawareMaterial.color = new Color(red, green, blue, 1);
         }
         //DelawareMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.FL.CARCINOGEN / 100) * 255;
+        valueScaled = percents.FL.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1597,7 +1627,7 @@ public class StatePercentages : MonoBehaviour {
             FloridaMaterial.color = new Color(red, green, blue, 1);
         }
         //FloridaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.GA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.GA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1620,7 +1650,7 @@ public class StatePercentages : MonoBehaviour {
             GeorgiaMaterial.color = new Color(red, green, blue, 1);
         }
         //GeorgiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.HI.CARCINOGEN / 100) * 255;
+        valueScaled = percents.HI.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1643,7 +1673,7 @@ public class StatePercentages : MonoBehaviour {
             HawaiiMaterial.color = new Color(red, green, blue, 1);
         }
         //HawaiiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.ID.CARCINOGEN / 100) * 255;
+        valueScaled = percents.ID.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1666,7 +1696,7 @@ public class StatePercentages : MonoBehaviour {
             IdahoMaterial.color = new Color(red, green, blue, 1);
         }
         //IdahoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.IL.CARCINOGEN / 100) * 255;
+        valueScaled = percents.IL.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1689,7 +1719,7 @@ public class StatePercentages : MonoBehaviour {
             IllinoisMaterial.color = new Color(red, green, blue, 1);
         }
         //IllinoisMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.IN.CARCINOGEN / 100) * 255;
+        valueScaled = percents.IN.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1712,7 +1742,7 @@ public class StatePercentages : MonoBehaviour {
             IndianaMaterial.color = new Color(red, green, blue, 1);
         }
         //IndianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.IA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.IA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1735,7 +1765,7 @@ public class StatePercentages : MonoBehaviour {
             IowaMaterial.color = new Color(red, green, blue, 1);
         }
         //IowaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.KS.CARCINOGEN / 100) * 255;
+        valueScaled = percents.KS.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1758,7 +1788,7 @@ public class StatePercentages : MonoBehaviour {
             KansasMaterial.color = new Color(red, green, blue, 1);
         }
         //KansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.KY.CARCINOGEN / 100) * 255;
+        valueScaled = percents.KY.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1781,7 +1811,7 @@ public class StatePercentages : MonoBehaviour {
             KentuckyMaterial.color = new Color(red, green, blue, 1);
         }
         //KentuckyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.LA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.LA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1804,7 +1834,7 @@ public class StatePercentages : MonoBehaviour {
             LouisianaMaterial.color = new Color(red, green, blue, 1);
         }
         //LouisianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.ME.CARCINOGEN / 100) * 255;
+        valueScaled = percents.ME.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1827,7 +1857,7 @@ public class StatePercentages : MonoBehaviour {
             MaineMaterial.color = new Color(red, green, blue, 1);
         }
         //MaineMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1); 
-        valueScaled = (percents.MD.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MD.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1850,7 +1880,7 @@ public class StatePercentages : MonoBehaviour {
             MarylandMaterial.color = new Color(red, green, blue, 1);
         }
         //MarylandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1873,7 +1903,7 @@ public class StatePercentages : MonoBehaviour {
             MassachusettsMaterial.color = new Color(red, green, blue, 1);
         }
         //MassachusettsMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MI.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MI.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1896,7 +1926,7 @@ public class StatePercentages : MonoBehaviour {
             MichiganMaterial.color = new Color(red, green, blue, 1);
         }
         //MichiganMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MN.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MN.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1919,7 +1949,7 @@ public class StatePercentages : MonoBehaviour {
             MinnesotaMaterial.color = new Color(red, green, blue, 1);
         }
         //MinnesotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MS.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MS.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1942,7 +1972,7 @@ public class StatePercentages : MonoBehaviour {
             MississippiMaterial.color = new Color(red, green, blue, 1);
         }
         //MississippiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MO.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MO.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1965,7 +1995,7 @@ public class StatePercentages : MonoBehaviour {
             MissouriMaterial.color = new Color(red, green, blue, 1);
         }
         //MissouriMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.MT.CARCINOGEN / 100) * 255;
+        valueScaled = percents.MT.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -1988,7 +2018,7 @@ public class StatePercentages : MonoBehaviour {
             MontanaMaterial.color = new Color(red, green, blue, 1);
         }
         //MontanaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NE.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NE.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2011,7 +2041,7 @@ public class StatePercentages : MonoBehaviour {
             NebraskaMaterial.color = new Color(red, green, blue, 1);
         }
         //NebraskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NV.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NV.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2034,7 +2064,7 @@ public class StatePercentages : MonoBehaviour {
             NevadaMaterial.color = new Color(red, green, blue, 1);
         }
         //NevadaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NH.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NH.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2057,7 +2087,7 @@ public class StatePercentages : MonoBehaviour {
             NewHampshireMaterial.color = new Color(red, green, blue, 1);
         }
         //NewHampshireMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NJ.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NJ.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2080,7 +2110,7 @@ public class StatePercentages : MonoBehaviour {
             NewJerseyMaterial.color = new Color(red, green, blue, 1);
         }
         //NewJerseyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NM.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NM.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2103,7 +2133,7 @@ public class StatePercentages : MonoBehaviour {
             NewMexicoMaterial.color = new Color(red, green, blue, 1);
         }
         //NewMexicoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NY.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NY.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2126,7 +2156,7 @@ public class StatePercentages : MonoBehaviour {
             NewYorkMaterial.color = new Color(red, green, blue, 1);
         }
         //NewYorkMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.NC.CARCINOGEN / 100) * 255;
+        valueScaled = percents.NC.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2149,7 +2179,7 @@ public class StatePercentages : MonoBehaviour {
             NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
         }
         //NorthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.ND.CARCINOGEN / 100) * 255;
+        valueScaled = percents.ND.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2172,7 +2202,7 @@ public class StatePercentages : MonoBehaviour {
             NorthDakotaMaterial.color = new Color(red, green, blue, 1);
         }
         //NorthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.OH.CARCINOGEN / 100) * 255;
+        valueScaled = percents.OH.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2195,7 +2225,7 @@ public class StatePercentages : MonoBehaviour {
             OhioMaterial.color = new Color(red, green, blue, 1);
         }
         //OhioMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.OK.CARCINOGEN / 100) * 255;
+        valueScaled = percents.OK.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2218,7 +2248,7 @@ public class StatePercentages : MonoBehaviour {
             OklahomaMaterial.color = new Color(red, green, blue, 1);
         }
         //OklahomaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.OR.CARCINOGEN / 100) * 255;
+        valueScaled = percents.OR.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2241,7 +2271,7 @@ public class StatePercentages : MonoBehaviour {
             OregonMaterial.color = new Color(red, green, blue, 1);
         }
         //OregonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.PA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.PA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2264,7 +2294,7 @@ public class StatePercentages : MonoBehaviour {
             PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
         }
         //PennsylvaniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.RI.CARCINOGEN / 100) * 255;
+        valueScaled = percents.RI.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2287,7 +2317,7 @@ public class StatePercentages : MonoBehaviour {
             RhodeIslandMaterial.color = new Color(red, green, blue, 1);
         }
         //RhodeIslandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.SC.CARCINOGEN / 100) * 255;
+        valueScaled = percents.SC.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2310,7 +2340,7 @@ public class StatePercentages : MonoBehaviour {
             SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
         }
         //SouthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.SD.CARCINOGEN / 100) * 255;
+        valueScaled = percents.SD.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2333,7 +2363,7 @@ public class StatePercentages : MonoBehaviour {
             SouthDakotaMaterial.color = new Color(red, green, blue, 1);
         }
         //SouthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.TN.CARCINOGEN / 100) * 255;
+        valueScaled = percents.TN.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2356,7 +2386,7 @@ public class StatePercentages : MonoBehaviour {
             TennesseeMaterial.color = new Color(red, green, blue, 1);
         }
         //TennesseeMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.TX.CARCINOGEN / 100) * 255;
+        valueScaled = percents.TX.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2379,7 +2409,7 @@ public class StatePercentages : MonoBehaviour {
             TexasMaterial.color = new Color(red, green, blue, 1);
         }
         //TexasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.UT.CARCINOGEN / 100) * 255;
+        valueScaled = percents.UT.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2402,7 +2432,7 @@ public class StatePercentages : MonoBehaviour {
             UtahMaterial.color = new Color(red, green, blue, 1);
         }
         //UtahMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.VT.CARCINOGEN / 100) * 255;
+        valueScaled = percents.VT.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2425,7 +2455,7 @@ public class StatePercentages : MonoBehaviour {
             VermontMaterial.color = new Color(red, green, blue, 1);
         }
         //VermontMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.VA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.VA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2448,7 +2478,7 @@ public class StatePercentages : MonoBehaviour {
             VirginiaMaterial.color = new Color(red, green, blue, 1);
         }
         //VirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WA.CARCINOGEN / 100) * 255;
+        valueScaled = percents.WA.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2471,7 +2501,7 @@ public class StatePercentages : MonoBehaviour {
             WashingtonMaterial.color = new Color(red, green, blue, 1);
         }
         //WashingtonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WV.CARCINOGEN / 100) * 255;
+        valueScaled = percents.WV.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2494,7 +2524,7 @@ public class StatePercentages : MonoBehaviour {
             WestVirginiaMaterial.color = new Color(red, green, blue, 1);
         }
         //WestVirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WI.CARCINOGEN / 100) * 255;
+        valueScaled = percents.WI.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2517,7 +2547,7 @@ public class StatePercentages : MonoBehaviour {
             WisconsinMaterial.color = new Color(red, green, blue, 1);
         }
         //WisconsinMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
-        valueScaled = (percents.WY.CARCINOGEN / 100) * 255;
+        valueScaled = percents.WY.CARCINOGEN;
         if (valueScaled < 50)
         {
             red = 0;
@@ -2539,16 +2569,2337 @@ public class StatePercentages : MonoBehaviour {
             green = 0;
             WyomingMaterial.color = new Color(red, green, blue, 1);
         }
-        //WyomingMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
     }
 
-    void MetalMap()
+    void MetalMap()//blue to cyan //add green keep blue at 255
     {
+        string dataAsJson = File.ReadAllText("Assets/Data/StatePercentages" + year + ".json");
+        AllStateReleasePercentages percents = JsonUtility.FromJson<AllStateReleasePercentages>(dataAsJson);
+        //float[] typeArray = {StatePercents.CLEAR_AIR_ACT_CHEMICAL, StatePercents.CARCINOGEN, StatePercents.METAL, StatePercents.FEDERAL_FACILITY};
 
+        //Debug.Log("AK METAL: " + percents.AK.METAL + "%");
+
+        float valueScaled;
+        float red;
+        float green;
+        float blue;
+
+        valueScaled = percents.AL.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            AlabamaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            AlabamaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            AlabamaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //Debug.Log("Alabama:" + valueScaled);
+        //AlabamaMaterial.color = new Color(red, green, blue, 1);
+        valueScaled = percents.AK.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            AlaskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            AlaskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            AlaskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //AlaskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        //AlaskaMaterial.color = new Color(0, 0, 255, 1);
+        valueScaled = percents.AZ.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ArizonaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ArizonaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            ArizonaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ArizonaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.AR.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ArkansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ArkansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            ArkansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ArkansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.CA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            CaliforniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            CaliforniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            CaliforniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //CaliforniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.CO.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ColoradoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ColoradoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            ColoradoMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ColoradoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.CT.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ConnecticutMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ConnecticutMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            ConnecticutMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ConnecticutMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.DE.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            DelawareMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            DelawareMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            DelawareMaterial.color = new Color(red, green, blue, 1);
+        }
+        //DelawareMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.FL.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            FloridaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            FloridaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            FloridaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //FloridaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.GA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            GeorgiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            GeorgiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            GeorgiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //GeorgiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.HI.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            HawaiiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            HawaiiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            HawaiiMaterial.color = new Color(red, green, blue, 1);
+        }
+        //HawaiiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.ID.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IdahoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IdahoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            IdahoMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IdahoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.IL.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IllinoisMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IllinoisMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            IllinoisMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IllinoisMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.IN.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IndianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IndianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            IndianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IndianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.IA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IowaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IowaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            IowaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IowaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.KS.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            KansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            KansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            KansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        //KansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.KY.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            KentuckyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            KentuckyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            KentuckyMaterial.color = new Color(red, green, blue, 1);
+        }
+        //KentuckyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.LA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            LouisianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            LouisianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            LouisianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //LouisianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.ME.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MaineMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MaineMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MaineMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MaineMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1); 
+        valueScaled = percents.MD.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MarylandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MarylandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MarylandMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MarylandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MassachusettsMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MassachusettsMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MassachusettsMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MassachusettsMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MI.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MichiganMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MichiganMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MichiganMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MichiganMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MN.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MinnesotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MinnesotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MinnesotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MinnesotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MS.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MississippiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MississippiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MississippiMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MississippiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MO.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MissouriMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MissouriMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MissouriMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MissouriMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MT.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MontanaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MontanaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            MontanaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MontanaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NE.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NebraskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NebraskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NebraskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NebraskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NV.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NevadaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NevadaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NevadaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NevadaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NH.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewHampshireMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewHampshireMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NewHampshireMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewHampshireMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NJ.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewJerseyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewJerseyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NewJerseyMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewJerseyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NM.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewMexicoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewMexicoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NewMexicoMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewMexicoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NY.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewYorkMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewYorkMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NewYorkMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewYorkMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NC.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NorthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.ND.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NorthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NorthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            NorthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NorthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.OH.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            OhioMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            OhioMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            OhioMaterial.color = new Color(red, green, blue, 1);
+        }
+        //OhioMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.OK.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            OklahomaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            OklahomaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            OklahomaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //OklahomaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.OR.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            OregonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            OregonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            OregonMaterial.color = new Color(red, green, blue, 1);
+        }
+        //OregonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.PA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //PennsylvaniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.RI.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            RhodeIslandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            RhodeIslandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            RhodeIslandMaterial.color = new Color(red, green, blue, 1);
+        }
+        //RhodeIslandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.SC.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //SouthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.SD.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            SouthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            SouthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            SouthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //SouthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.TN.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            TennesseeMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            TennesseeMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            TennesseeMaterial.color = new Color(red, green, blue, 1);
+        }
+        //TennesseeMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.TX.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            TexasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            TexasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            TexasMaterial.color = new Color(red, green, blue, 1);
+        }
+        //TexasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.UT.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            UtahMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            UtahMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            UtahMaterial.color = new Color(red, green, blue, 1);
+        }
+        //UtahMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.VT.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            VermontMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            VermontMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            VermontMaterial.color = new Color(red, green, blue, 1);
+        }
+        //VermontMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.VA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            VirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            VirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            VirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //VirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WA.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WashingtonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WashingtonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            WashingtonMaterial.color = new Color(red, green, blue, 1);
+        }
+        //WashingtonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WV.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WestVirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WestVirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            WestVirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //WestVirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WI.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WisconsinMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WisconsinMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            WisconsinMaterial.color = new Color(red, green, blue, 1);
+        }
+        //WisconsinMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WY.METAL;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WyomingMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WyomingMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 0;
+            WyomingMaterial.color = new Color(red, green, blue, 1);
+        }
     }
 
-    void FederalMap()
+    void FederalMap()//blue to white // keep blue 255 add to red and green
     {
+        string dataAsJson = File.ReadAllText("Assets/Data/StatePercentages" + year + ".json");
+        AllStateReleasePercentages percents = JsonUtility.FromJson<AllStateReleasePercentages>(dataAsJson);
+        //float[] typeArray = {StatePercents.CLEAR_AIR_ACT_CHEMICAL, StatePercents.CARCINOGEN, StatePercents.METAL, StatePercents.FEDERAL_FACILITY};
 
+        //Debug.Log("AK METAL: " + percents.AK.METAL + "%");
+
+        float valueScaled;
+        float red;
+        float green;
+        float blue;
+
+        valueScaled = percents.AL.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            AlabamaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            AlabamaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            AlabamaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //Debug.Log("Alabama:" + valueScaled);
+        //AlabamaMaterial.color = new Color(red, green, blue, 1);
+        valueScaled = percents.AK.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            AlaskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            AlaskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            AlaskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //AlaskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        //AlaskaMaterial.color = new Color(0, 0, 255, 1);
+        valueScaled = percents.AZ.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ArizonaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ArizonaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            ArizonaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ArizonaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.AR.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ArkansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ArkansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            ArkansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ArkansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.CA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            CaliforniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            CaliforniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            CaliforniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //CaliforniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.CO.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ColoradoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ColoradoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            ColoradoMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ColoradoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.CT.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            ConnecticutMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            ConnecticutMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            ConnecticutMaterial.color = new Color(red, green, blue, 1);
+        }
+        //ConnecticutMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.DE.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            DelawareMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            DelawareMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            DelawareMaterial.color = new Color(red, green, blue, 1);
+        }
+        //DelawareMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.FL.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            FloridaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            FloridaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            FloridaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //FloridaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.GA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            GeorgiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            GeorgiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            GeorgiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //GeorgiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.HI.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            HawaiiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            HawaiiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            HawaiiMaterial.color = new Color(red, green, blue, 1);
+        }
+        //HawaiiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.ID.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IdahoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IdahoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            IdahoMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IdahoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.IL.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IllinoisMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IllinoisMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            IllinoisMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IllinoisMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.IN.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IndianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IndianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            IndianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IndianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.IA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            IowaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            IowaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            IowaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //IowaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.KS.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            KansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            KansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            KansasMaterial.color = new Color(red, green, blue, 1);
+        }
+        //KansasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.KY.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            KentuckyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            KentuckyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            KentuckyMaterial.color = new Color(red, green, blue, 1);
+        }
+        //KentuckyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.LA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            LouisianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            LouisianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            LouisianaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //LouisianaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.ME.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MaineMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MaineMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MaineMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MaineMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1); 
+        valueScaled = percents.MD.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MarylandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MarylandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MarylandMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MarylandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MassachusettsMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MassachusettsMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MassachusettsMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MassachusettsMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MI.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MichiganMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MichiganMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MichiganMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MichiganMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MN.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MinnesotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MinnesotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MinnesotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MinnesotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MS.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MississippiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MississippiMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MississippiMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MississippiMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MO.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MissouriMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MissouriMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MissouriMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MissouriMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.MT.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            MontanaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            MontanaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            MontanaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //MontanaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NE.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NebraskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NebraskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NebraskaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NebraskaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NV.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NevadaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NevadaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NevadaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NevadaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NH.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewHampshireMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewHampshireMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NewHampshireMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewHampshireMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NJ.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewJerseyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewJerseyMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NewJerseyMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewJerseyMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NM.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewMexicoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewMexicoMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NewMexicoMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewMexicoMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NY.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NewYorkMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NewYorkMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NewYorkMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NewYorkMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.NC.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NorthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.ND.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            NorthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            NorthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            NorthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //NorthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.OH.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            OhioMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            OhioMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            OhioMaterial.color = new Color(red, green, blue, 1);
+        }
+        //OhioMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.OK.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            OklahomaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            OklahomaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            OklahomaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //OklahomaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.OR.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            OregonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            OregonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            OregonMaterial.color = new Color(red, green, blue, 1);
+        }
+        //OregonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.PA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //PennsylvaniaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.RI.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            RhodeIslandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            RhodeIslandMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            RhodeIslandMaterial.color = new Color(red, green, blue, 1);
+        }
+        //RhodeIslandMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.SC.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //SouthCarolinaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.SD.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            SouthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            SouthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            SouthDakotaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //SouthDakotaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.TN.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            TennesseeMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            TennesseeMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            TennesseeMaterial.color = new Color(red, green, blue, 1);
+        }
+        //TennesseeMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.TX.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            TexasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            TexasMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            TexasMaterial.color = new Color(red, green, blue, 1);
+        }
+        //TexasMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.UT.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            UtahMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            UtahMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            UtahMaterial.color = new Color(red, green, blue, 1);
+        }
+        //UtahMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.VT.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            VermontMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            VermontMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            VermontMaterial.color = new Color(red, green, blue, 1);
+        }
+        //VermontMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.VA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            VirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            VirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            VirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //VirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WA.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WashingtonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WashingtonMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            WashingtonMaterial.color = new Color(red, green, blue, 1);
+        }
+        //WashingtonMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WV.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WestVirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WestVirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            WestVirginiaMaterial.color = new Color(red, green, blue, 1);
+        }
+        //WestVirginiaMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WI.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WisconsinMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WisconsinMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            WisconsinMaterial.color = new Color(red, green, blue, 1);
+        }
+        //WisconsinMaterial.color = new Color(valueScaled, valueScaled, 255 - valueScaled, 1);
+        valueScaled = percents.WY.FEDERAL_FACILITY;
+        if (valueScaled < 50)
+        {
+            red = 0;
+            green = 0;
+            blue = (valueScaled / 50) * 255;
+            WyomingMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled == 50)
+        {
+            red = 0;
+            green = 0;
+            blue = 0;
+            WyomingMaterial.color = new Color(red, green, blue, 1);
+        }
+        else if (valueScaled > 50)
+        {
+            green = 255 * ((valueScaled - 50) / 50);
+            blue = 255 * ((valueScaled - 50) / 50);
+            red = 255 * ((valueScaled - 50) / 50);
+            WyomingMaterial.color = new Color(red, green, blue, 1);
+        }
     }
 }
