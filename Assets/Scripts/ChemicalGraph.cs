@@ -102,6 +102,8 @@ public class ChemicalGraph : MonoBehaviour {
     private Vector3 target;
     public float expandSpeed;
     private string lastState;
+    public Text hoverText;
+    public string selectedLabel = "";
 
     //Sibling graphs
     public ChemicalGraph sibling1;
@@ -301,7 +303,8 @@ public class ChemicalGraph : MonoBehaviour {
             if (childWedge.name == "Wedge(Clone)")
             {
                 string childLabel = childWedge.GetComponent<Wedge>().label;
-                if (chemical.Equals(childLabel))
+                // Only expand if the wedge is not already selected
+                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
                 {
                     childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
                 }
@@ -313,7 +316,8 @@ public class ChemicalGraph : MonoBehaviour {
             if (childWedge.name == "Wedge(Clone)")
             {
                 string childLabel = childWedge.GetComponent<Wedge>().label;
-                if (chemical.Equals(childLabel))
+                // Only expand if the wedge is not already selected
+                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
                 {
                     childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
                 }
@@ -328,7 +332,8 @@ public class ChemicalGraph : MonoBehaviour {
             if (childWedge.name == "Wedge(Clone)")
             {
                 string childLabel = childWedge.GetComponent<Wedge>().label;
-                if (chemical.Equals(childLabel))
+                // Only contract if the wedge is not already selected
+                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
                 {
                     childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
                 }
@@ -340,12 +345,20 @@ public class ChemicalGraph : MonoBehaviour {
             if (childWedge.name == "Wedge(Clone)")
             {
                 string childLabel = childWedge.GetComponent<Wedge>().label;
-                if (chemical.Equals(childLabel))
+                // Only contract if the wedge is not already selected
+                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
                 {
                     childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
                 }
             }
         }
+    }
+
+    public void UpdateHoverText()
+    {
+        hoverText.text = selectedLabel;
+        sibling1.hoverText.text = selectedLabel;
+        sibling2.hoverText.text = selectedLabel;
     }
 
     public void RefreshGraph()

@@ -31,7 +31,7 @@ namespace DataStarter
         public void Over()
         {
             m_IsOver = true;
-
+            
             if (OnOver != null)
                 OnOver();
         }

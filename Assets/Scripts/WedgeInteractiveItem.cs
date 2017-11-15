@@ -28,16 +28,14 @@ public class WedgeInteractiveItem : MonoBehaviour {
     //Handle the Over event
     private void HandleOver()
     {
-        Debug.Log("Show over wedge");//this changes the color of material on the next line.
-        GetComponent<Wedge>().setText();
+        GetComponent<Wedge>().lookedAt();
     }
 
 
     //Handle the Out event
     private void HandleOut()
     {
-        Debug.Log("Show out wedge");
-        GetComponent<Wedge>().clearText();
+        GetComponent<Wedge>().lookedAway();
     }
 
 
@@ -45,6 +43,7 @@ public class WedgeInteractiveItem : MonoBehaviour {
     private void HandleClick()
     {
         Debug.Log("Show click wedge");
+        GetComponent<Wedge>().clicked();
     }
 
 

@@ -94,13 +94,33 @@ namespace DataStarter
             }
             else
             {
-                // Nothing was hit, deactive the last interactive item.
-                DeactiveLastInteractible();
-                m_CurrentInteractible = null;
+                // Had to add in a 2D raycaster to work with the 2D colliders on the pie chart...
+                RaycastHit2D hit2D = Physics2D.Raycast(m_Camera.position, m_Camera.forward, m_RayLength, ~m_ExclusionLayers);
+                if (hit2D.collider != null)
+                {
+                    VRInteractiveItem interactible = hit2D.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
+                    m_CurrentInteractible = interactible;
 
-                // Position the reticle at default distance.
-                if (m_Reticle)
-                    m_Reticle.SetPosition();
+                    // If we hit an interactive item and it's not the same as the last interactive item, then call Over
+                    if (interactible && interactible != m_LastInteractible)
+                        interactible.Over();
+
+                    // Deactive the last interactive item 
+                    if (interactible != m_LastInteractible)
+                        DeactiveLastInteractible();
+
+                    m_LastInteractible = interactible;
+                }
+                else
+                {
+                    // Nothing was hit, deactive the last interactive item.
+                    DeactiveLastInteractible();
+                    m_CurrentInteractible = null;
+
+                    // Position the reticle at default distance.
+                    if (m_Reticle)
+                        m_Reticle.SetPosition();
+                }
             }
         }
 

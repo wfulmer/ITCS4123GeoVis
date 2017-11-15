@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 222000013494858078}
   - component: {fileID: 114000011570132730}
   - component: {fileID: 114910049314751038}
-  - component: {fileID: 60893879727633214}
+  - component: {fileID: 60864703100213134}
+  - component: {fileID: 114958216686007590}
+  - component: {fileID: 114497375694551702}
   m_Layer: 5
   m_Name: Wedge
   m_TagString: Untagged
@@ -30,7 +32,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &60893879727633214
+--- !u!60 &60864703100213134
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -54,9 +56,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0}
-      - {x: 0, y: 47}
-      - {x: 47, y: 47}
+    - - {x: 0, y: 1}
+      - {x: -0.95105654, y: 0.30901697}
+      - {x: -0.5877852, y: -0.80901706}
+      - {x: 0.58778536, y: -0.80901694}
+      - {x: 0.9510565, y: 0.30901712}
 --- !u!114 &114000011570132730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +88,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
+--- !u!114 &114497375694551702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012451035732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c619e28eab0cb0e4d83bec9d8d0602c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractiveItem: {fileID: 114958216686007590}
 --- !u!114 &114910049314751038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,6 +112,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: 
+  expanded: 0
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114958216686007590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012451035732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acedb779a667fed48ba10ce620899b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222000013494858078
 CanvasRenderer:
   m_ObjectHideFlags: 1

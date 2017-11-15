@@ -10,50 +10,46 @@ public class Wedge : MonoBehaviour {
     public bool expanded = false;
     public Color defaultColor;
 
-    private void OnMouseOver()
+    public void lookedAt()
     {
-        setText();
-        Expand();
-        transform.parent.GetComponent<ChemicalGraph>().ExpandMatchingWedges(label);
-    }
-
-    private void OnMouseExit()
-    {
-        clearText();
         Contract();
         transform.parent.GetComponent<ChemicalGraph>().ContractMatchingWedges(label);
     }
 
-    public void setText()
+    public void lookedAway()
     {
-        Debug.Log("SET TEXT: " + label);
-        Debug.Log(transform.parent.gameObject);
-        Text hoverText = transform.parent.gameObject.transform.Find("HoverText").GetComponent<Text>();
-        hoverText.text = label;
+        Expand();
+        transform.parent.GetComponent<ChemicalGraph>().ExpandMatchingWedges(label);
     }
 
-    public void clearText()
+    public void clicked()
     {
-        Debug.Log("CLEAR TEXT: " + label);
-        Debug.Log(transform.parent.gameObject);
-        Text hoverText = transform.parent.gameObject.transform.Find("HoverText").GetComponent<Text>();
-        hoverText.text = "";
-    }
-
-    public void Expand()
-    {
-        GetComponent<Image>().color = new Color(0, 0, 1, 1);
-        if (expanded == false)
-        {
-            transform.localScale = new Vector3(0.8f, 0.8f, 1);
-            expanded = true;
-        }
+        transform.parent.GetComponent<ChemicalGraph>().selectedLabel = label;
+        transform.parent.GetComponent<ChemicalGraph>().sibling1.selectedLabel = label;
+        transform.parent.GetComponent<ChemicalGraph>().sibling2.selectedLabel = label;
+        transform.parent.GetComponent<ChemicalGraph>().UpdateHoverText();
     }
 
     public void Contract()
     {
-        GetComponent<Image>().color = defaultColor;
-        transform.localScale = new Vector3(1, 1, 1);
-        expanded = false;
+        if(transform.parent.GetComponent<ChemicalGraph>().selectedLabel != label)
+        {
+            GetComponent<Image>().color = new Color(0, 0, 1, 1);
+            if (expanded == false)
+            {
+                transform.localScale = new Vector3(0.8f, 0.8f, 1);
+                expanded = true;
+            }
+        }
+    }
+
+    public void Expand()
+    {
+        if (transform.parent.GetComponent<ChemicalGraph>().selectedLabel != label)
+        {
+            GetComponent<Image>().color = defaultColor;
+            transform.localScale = new Vector3(1, 1, 1);
+            expanded = false;
+        }
     }
 }
