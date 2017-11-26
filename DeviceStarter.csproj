@@ -238,6 +238,7 @@
     <Compile Include="Assets\Scripts\DataConverter.cs" />
     <Compile Include="Assets\Scripts\ExampleInteractiveItem.cs" />
     <Compile Include="Assets\Scripts\MenuInteractiveItem.cs" />
+    <Compile Include="Assets\Scripts\ParallelCoordinates.cs" />
     <Compile Include="Assets\Scripts\Piegraph.cs" />
     <Compile Include="Assets\Scripts\Reticle.cs" />
     <Compile Include="Assets\Scripts\SelectionRadial.cs" />

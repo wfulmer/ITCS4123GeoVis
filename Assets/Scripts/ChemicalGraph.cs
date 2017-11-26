@@ -265,13 +265,14 @@ public class ChemicalGraph : MonoBehaviour {
             angleSin = Mathf.Sin(angleInRadians);
             points[5] = new Vector2(0, 47);
             collider.SetPath(0, points);
-
+            
             newWedge.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, zRotation));
             zRotation -= newWedge.fillAmount * 360f;
         }
 
         target = midTarget;
         generated = true;
+        transform.rotation = Quaternion.Euler(new Vector3(0f, -35f, 0f));
     }
 
     private void Update()
@@ -298,28 +299,30 @@ public class ChemicalGraph : MonoBehaviour {
 
     public void ExpandMatchingWedges(string chemical)
     {
-        foreach (Transform childWedge in sibling1.transform)
+        // Only contract if the wedge is not already selected
+        if (chemical != selectedLabel)
         {
-            if (childWedge.name == "Wedge(Clone)")
+            foreach (Transform childWedge in sibling1.transform)
             {
-                string childLabel = childWedge.GetComponent<Wedge>().label;
-                // Only expand if the wedge is not already selected
-                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
+                if (childWedge.name == "Wedge(Clone)")
                 {
-                    childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                    string childLabel = childWedge.GetComponent<Wedge>().label;
+                    if (chemical.Equals(childLabel))
+                    {
+                        childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                    }
                 }
             }
-        }
 
-        foreach (Transform childWedge in sibling2.transform)
-        {
-            if (childWedge.name == "Wedge(Clone)")
+            foreach (Transform childWedge in sibling2.transform)
             {
-                string childLabel = childWedge.GetComponent<Wedge>().label;
-                // Only expand if the wedge is not already selected
-                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
+                if (childWedge.name == "Wedge(Clone)")
                 {
-                    childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                    string childLabel = childWedge.GetComponent<Wedge>().label;
+                    if (chemical.Equals(childLabel))
+                    {
+                        childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                    }
                 }
             }
         }
@@ -327,28 +330,30 @@ public class ChemicalGraph : MonoBehaviour {
 
     public void ContractMatchingWedges(string chemical)
     {
-        foreach (Transform childWedge in sibling1.transform)
+        // Only contract if the wedge is not already selected
+        if (chemical != selectedLabel)
         {
-            if (childWedge.name == "Wedge(Clone)")
+            foreach (Transform childWedge in sibling1.transform)
             {
-                string childLabel = childWedge.GetComponent<Wedge>().label;
-                // Only contract if the wedge is not already selected
-                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
+                if (childWedge.name == "Wedge(Clone)")
                 {
-                    childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                    string childLabel = childWedge.GetComponent<Wedge>().label;
+                    if (chemical.Equals(childLabel))
+                    {
+                        childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                    }
                 }
             }
-        }
 
-        foreach (Transform childWedge in sibling2.transform)
-        {
-            if (childWedge.name == "Wedge(Clone)")
+            foreach (Transform childWedge in sibling2.transform)
             {
-                string childLabel = childWedge.GetComponent<Wedge>().label;
-                // Only contract if the wedge is not already selected
-                if (chemical.Equals(childLabel) && childLabel != selectedLabel)
+                if (childWedge.name == "Wedge(Clone)")
                 {
-                    childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                    string childLabel = childWedge.GetComponent<Wedge>().label;
+                    if (chemical.Equals(childLabel))
+                    {
+                        childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                    }
                 }
             }
         }

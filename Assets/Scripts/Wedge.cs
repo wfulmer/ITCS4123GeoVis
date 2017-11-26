@@ -24,10 +24,30 @@ public class Wedge : MonoBehaviour {
 
     public void clicked()
     {
+        string oldSelection = transform.parent.GetComponent<ChemicalGraph>().selectedLabel;
+
         transform.parent.GetComponent<ChemicalGraph>().selectedLabel = label;
         transform.parent.GetComponent<ChemicalGraph>().sibling1.selectedLabel = label;
         transform.parent.GetComponent<ChemicalGraph>().sibling2.selectedLabel = label;
         transform.parent.GetComponent<ChemicalGraph>().UpdateHoverText();
+
+        // Expand (deselect) the previous wedge if we'd seleceted one earlier
+        if (oldSelection != "")
+        {
+            foreach(Transform childWedge in transform.parent.GetComponent<ChemicalGraph>().transform)
+            {
+                if (childWedge.name == "Wedge(Clone)")
+                {
+                    string childLabel = childWedge.GetComponent<Wedge>().label;
+                    if (oldSelection.Equals(childLabel))
+                    {
+                        childWedge.transform.gameObject.GetComponent<Wedge>().Expand();
+                        break;
+                    }
+                }
+            }
+            transform.parent.GetComponent<ChemicalGraph>().ExpandMatchingWedges(oldSelection);
+        }
     }
 
     public void Contract()

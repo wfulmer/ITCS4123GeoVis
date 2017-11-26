@@ -96,6 +96,12 @@ namespace DataStarter
             {
                 // Had to add in a 2D raycaster to work with the 2D colliders on the pie chart...
                 RaycastHit2D hit2D = Physics2D.Raycast(m_Camera.position, m_Camera.forward, m_RayLength, ~m_ExclusionLayers);
+
+                if (m_ShowDebugRay)
+                {
+                    Debug.DrawRay((Vector2) m_Camera.position, (Vector2) m_Camera.forward * m_DebugRayLength, Color.red, m_DebugRayDuration);
+                }
+
                 if (hit2D.collider != null)
                 {
                     VRInteractiveItem interactible = hit2D.collider.GetComponent<VRInteractiveItem>(); //attempt to get the VRInteractiveItem on the hit object
