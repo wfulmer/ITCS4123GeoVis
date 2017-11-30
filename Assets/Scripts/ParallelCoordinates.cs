@@ -29,10 +29,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         Vector3[] positions = new Vector3[5];
         positions[0] = new Vector3(200, 175, -50);
-        positions[1] = new Vector3(200, (percents.AL.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.AL.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.AL.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.AL.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.AL.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.AL.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.AL.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.AL.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("AK Line");
@@ -43,10 +43,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 170, -50);
-        positions[1] = new Vector3(200, (percents.AK.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.AK.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.AK.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.AK.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.AK.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.AK.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.AK.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.AK.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
         
         lineObject = new GameObject("AZ Line");
@@ -57,10 +57,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 165, -50);
-        positions[1] = new Vector3(200, (percents.AZ.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.AZ.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.AZ.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.AZ.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.AZ.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.AZ.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.AZ.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.AZ.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("AR Line");
@@ -71,10 +71,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 160, -50);
-        positions[1] = new Vector3(200, (percents.AR.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.AR.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.AR.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.AR.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.AR.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.AR.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.AR.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.AR.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("CA Line");
@@ -85,10 +85,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 155, -50);//x, 155, x; change the middle number by 5 each time
-        positions[1] = new Vector3(200, (percents.CA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.CA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.CA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.CA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.CA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.CA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.CA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.CA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("CO Line");
@@ -99,10 +99,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 150, -50);
-        positions[1] = new Vector3(200, (percents.CO.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.CO.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.CO.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.CO.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.CO.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.CO.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.CO.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.CO.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("CT Line");
@@ -113,10 +113,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 145, -50);
-        positions[1] = new Vector3(200, (percents.CT.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.CT.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.CT.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.CT.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.CT.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.CT.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.CT.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.CT.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("DE Line");
@@ -127,10 +127,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 140, -50);
-        positions[1] = new Vector3(200, (percents.DE.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.DE.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.DE.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.DE.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.DE.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.DE.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.DE.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.DE.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("FL Line");
@@ -141,10 +141,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 135, -50);
-        positions[1] = new Vector3(200, (percents.FL.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.FL.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.FL.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.FL.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.FL.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.FL.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.FL.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.FL.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("GA Line");
@@ -155,10 +155,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 130, -50);
-        positions[1] = new Vector3(200, (percents.GA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.GA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.GA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.GA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.GA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.GA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.GA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.GA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("HI Line");
@@ -169,10 +169,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 125, -50);
-        positions[1] = new Vector3(200, (percents.HI.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.HI.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.HI.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.HI.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.HI.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.HI.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.HI.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.HI.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("ID Line");
@@ -183,10 +183,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 120, -50);
-        positions[1] = new Vector3(200, (percents.ID.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.ID.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.ID.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.ID.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.ID.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.ID.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.ID.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.ID.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("IL Line");
@@ -197,10 +197,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 115, -50);
-        positions[1] = new Vector3(200, (percents.IL.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.IL.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.IL.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.IL.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.IL.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.IL.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.IL.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.IL.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("IN Line");
@@ -211,10 +211,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 110, -50);
-        positions[1] = new Vector3(200, (percents.IN.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.IN.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.IN.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.IN.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.IN.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.IN.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.IN.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.IN.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("IA Line");
@@ -225,10 +225,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 105, -50);
-        positions[1] = new Vector3(200, (percents.IA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.IA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.IA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.IA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.IA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.IA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.IA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.IA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("KS Line");
@@ -239,10 +239,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 100, -50);
-        positions[1] = new Vector3(200, (percents.KS.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.KS.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.KS.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.KS.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.KS.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.KS.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.KS.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.KS.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("KY Line");
@@ -253,10 +253,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 95, -50);
-        positions[1] = new Vector3(200, (percents.KY.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.KY.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.KY.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.KY.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.KY.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.KY.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.KY.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.KY.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("LA Line");
@@ -267,10 +267,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 90, -50);
-        positions[1] = new Vector3(200, (percents.LA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.LA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.LA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.LA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.LA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.LA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.LA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.LA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("ME Line");
@@ -281,10 +281,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 85, -50);
-        positions[1] = new Vector3(200, (percents.ME.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.ME.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.ME.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.ME.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.ME.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.ME.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.ME.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.ME.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MD Line");
@@ -295,10 +295,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 80, -50);
-        positions[1] = new Vector3(200, (percents.MD.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MD.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MD.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MD.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MD.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MD.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MD.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MD.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MA Line");
@@ -309,10 +309,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 75, -50);
-        positions[1] = new Vector3(200, (percents.MA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MI Line");
@@ -323,10 +323,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 70, -50);
-        positions[1] = new Vector3(200, (percents.MI.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MI.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MI.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MI.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MI.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MI.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MI.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MI.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MN Line");
@@ -337,10 +337,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 65, -50);
-        positions[1] = new Vector3(200, (percents.MN.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MN.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MN.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MN.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MN.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MN.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MN.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MN.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MS Line");
@@ -351,10 +351,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 60, -50);
-        positions[1] = new Vector3(200, (percents.MS.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MS.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MS.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MS.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MS.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MS.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MS.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MS.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MO Line");
@@ -365,10 +365,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 55, -50);
-        positions[1] = new Vector3(200, (percents.MO.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MO.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MO.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MO.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MO.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MO.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MO.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MO.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("MT Line");
@@ -379,10 +379,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 50, -50);
-        positions[1] = new Vector3(200, (percents.MT.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.MT.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.MT.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.MT.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.MT.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.MT.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.MT.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.MT.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NE Line");
@@ -393,10 +393,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 45, -50);
-        positions[1] = new Vector3(200, (percents.NE.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NE.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NE.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NE.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NE.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NE.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NE.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NE.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NV Line");
@@ -407,10 +407,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 40, -50);
-        positions[1] = new Vector3(200, (percents.NV.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NV.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NV.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NV.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NV.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NV.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NV.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NV.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NH Line");
@@ -421,10 +421,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 35, -50);
-        positions[1] = new Vector3(200, (percents.NH.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NH.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NH.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NH.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NH.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NH.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NH.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NH.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NJ Line");
@@ -435,10 +435,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 30, -50);
-        positions[1] = new Vector3(200, (percents.NJ.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NJ.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NJ.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NJ.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NJ.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NJ.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NJ.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NJ.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NM Line");
@@ -449,10 +449,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 25, -50);
-        positions[1] = new Vector3(200, (percents.NM.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NM.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NM.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NM.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NM.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NM.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NM.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NM.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NY Line");
@@ -463,10 +463,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 20, -50);
-        positions[1] = new Vector3(200, (percents.NY.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NY.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NY.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NY.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NY.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NY.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NY.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NY.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("NC Line");
@@ -477,10 +477,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 15, -50);
-        positions[1] = new Vector3(200, (percents.NC.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.NC.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.NC.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.NC.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.NC.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.NC.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.NC.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.NC.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("ND Line");
@@ -491,10 +491,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 10, -50);
-        positions[1] = new Vector3(200, (percents.ND.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.ND.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.ND.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.ND.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.ND.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.ND.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.ND.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.ND.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("OH Line");
@@ -505,10 +505,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 5, -50);
-        positions[1] = new Vector3(200, (percents.OH.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.OH.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.OH.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.OH.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.OH.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.OH.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.OH.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.OH.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("OK Line");
@@ -519,10 +519,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, 0, -50);
-        positions[1] = new Vector3(200, (percents.OK.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.OK.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.OK.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.OK.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.OK.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.OK.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.OK.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.OK.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("OR Line");
@@ -533,10 +533,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -5, -50);
-        positions[1] = new Vector3(200, (percents.OR.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.OR.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.OR.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.OR.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.OR.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.OR.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.OR.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.OR.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("PA Line");
@@ -547,10 +547,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -10, -50);
-        positions[1] = new Vector3(200, (percents.PA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.PA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.PA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.PA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.PA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.PA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.PA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.PA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("RI Line");
@@ -561,10 +561,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -15, -50);
-        positions[1] = new Vector3(200, (percents.RI.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.RI.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.RI.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.RI.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.RI.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.RI.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.RI.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.RI.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("SC Line");
@@ -575,10 +575,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -20, -50);
-        positions[1] = new Vector3(200, (percents.SC.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.SC.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.SC.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.SC.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.SC.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.SC.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.SC.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.SC.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("SD Line");
@@ -589,10 +589,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -25, -50);
-        positions[1] = new Vector3(200, (percents.SD.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.SD.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.SD.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.SD.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.SD.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.SD.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.SD.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.SD.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("TN Line");
@@ -603,10 +603,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -30, -50);
-        positions[1] = new Vector3(200, (percents.TN.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.TN.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.TN.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.TN.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.TN.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.TN.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.TN.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.TN.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("TX Line");
@@ -617,10 +617,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -35, -50);
-        positions[1] = new Vector3(200, (percents.TX.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.TX.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.TX.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.TX.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.TX.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.TX.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.TX.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.TX.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("UT Line");
@@ -631,10 +631,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -40, -50);
-        positions[1] = new Vector3(200, (percents.UT.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.UT.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.UT.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.UT.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.UT.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.UT.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.UT.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.UT.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("VT Line");
@@ -645,10 +645,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -45, -50);
-        positions[1] = new Vector3(200, (percents.VT.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.VT.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.VT.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.VT.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.VT.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.VT.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.VT.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.VT.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("VA Line");
@@ -659,10 +659,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -50, -50);
-        positions[1] = new Vector3(200, (percents.VA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.VA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.VA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.VA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.VA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.VA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.VA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.VA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("WA Line");
@@ -673,10 +673,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -55, -50);
-        positions[1] = new Vector3(200, (percents.WA.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.WA.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.WA.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.WA.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.WA.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.WA.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.WA.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.WA.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("WV Line");
@@ -687,10 +687,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -60, -50);
-        positions[1] = new Vector3(200, (percents.WV.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.WV.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.WV.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.WV.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.WV.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.WV.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.WV.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.WV.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("WI Line");
@@ -701,10 +701,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -65, -50);
-        positions[1] = new Vector3(200, (percents.WI.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.WI.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.WI.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.WI.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.WI.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.WI.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.WI.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.WI.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
 
         lineObject = new GameObject("WY Line");
@@ -715,10 +715,10 @@ public class ParallelCoordinates : MonoBehaviour {
         line.startColor = new Color(0, 255, 255, .5f);
         positions = new Vector3[5];
         positions[0] = new Vector3(200, -70, -50);
-        positions[1] = new Vector3(200, (percents.WY.CARCINOGEN) + 50, -150);
-        positions[2] = new Vector3(200, (percents.WY.CLEAR_AIR_ACT_CHEMICAL) + 50, -300);
-        positions[3] = new Vector3(200, (percents.WY.METAL) + 50, -450);
-        positions[4] = new Vector3(200, (percents.WY.FEDERAL_FACILITY) + 50, -600);
+        positions[1] = new Vector3(200, (percents.WY.CARCINOGEN*2) - 50, -150);
+        positions[2] = new Vector3(200, (percents.WY.CLEAR_AIR_ACT_CHEMICAL*2) - 50, -300);
+        positions[3] = new Vector3(200, (percents.WY.METAL*2) - 50, -450);
+        positions[4] = new Vector3(200, (percents.WY.FEDERAL_FACILITY*2) - 50, -600);
         line.SetPositions(positions);
     }
 }
