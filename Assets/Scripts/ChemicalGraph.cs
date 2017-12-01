@@ -295,6 +295,7 @@ public class ChemicalGraph : MonoBehaviour {
         transform.position = new Vector3(0, 0, 0);
         target = new Vector3(0, 0, 0);
         stateTitle.text = "";
+        hoverText.text = "";
     }
 
     public void ExpandMatchingWedges(string chemical)
@@ -362,8 +363,14 @@ public class ChemicalGraph : MonoBehaviour {
     public void UpdateHoverText()
     {
         hoverText.text = selectedLabel;
-        sibling1.hoverText.text = selectedLabel;
-        sibling2.hoverText.text = selectedLabel;
+        if (sibling1.generated)
+        {
+            sibling1.hoverText.text = selectedLabel;
+        }
+        if (sibling2.generated)
+        {
+            sibling2.hoverText.text = selectedLabel;
+        }
     }
 
     public void RefreshGraph()

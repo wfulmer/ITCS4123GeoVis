@@ -27,8 +27,14 @@ public class Wedge : MonoBehaviour {
         string oldSelection = transform.parent.GetComponent<ChemicalGraph>().selectedLabel;
 
         transform.parent.GetComponent<ChemicalGraph>().selectedLabel = label;
-        transform.parent.GetComponent<ChemicalGraph>().sibling1.selectedLabel = label;
-        transform.parent.GetComponent<ChemicalGraph>().sibling2.selectedLabel = label;
+        if(transform.parent.GetComponent<ChemicalGraph>().sibling1.generated)
+        {
+            transform.parent.GetComponent<ChemicalGraph>().sibling1.selectedLabel = label;
+        }
+        if (transform.parent.GetComponent<ChemicalGraph>().sibling2.generated)
+        {
+            transform.parent.GetComponent<ChemicalGraph>().sibling2.selectedLabel = label;
+        }
         transform.parent.GetComponent<ChemicalGraph>().UpdateHoverText();
 
         // Expand (deselect) the previous wedge if we'd seleceted one earlier
