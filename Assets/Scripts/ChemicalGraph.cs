@@ -123,7 +123,7 @@ public class ChemicalGraph : MonoBehaviour {
         // Clear out the dictionary before loading new values
         statesDict = new Dictionary<string, StateChemInfo>();
 
-        string dataAsJson = File.ReadAllText("Assets/Data/StateChemicals" + layout.year + ".json");
+        string dataAsJson = File.ReadAllText("Assets/Data/StateChemicals" + StateLayoutManager.year + ".json");
         states = JsonUtility.FromJson<AllStateChemInfo>(dataAsJson);
 
         statesDict.Add("AK", states.AK);

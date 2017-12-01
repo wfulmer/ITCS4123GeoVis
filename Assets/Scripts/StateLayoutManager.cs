@@ -64,7 +64,7 @@ public class StateInfo
 public class StateLayoutManager : MonoBehaviour {
 
     //Year
-    public int year = 2015;
+    public static int year = 2015;
     public Text currentYearText;
     public Transform yearSliderBox;
 
@@ -199,6 +199,7 @@ public class StateLayoutManager : MonoBehaviour {
             }
             Debug.Log("Increased year to: " + year);
             RefreshMap();
+            ParallelCoordinates.Update();
             if (upper.generated)
             {
                 upper.RefreshGraph();
@@ -229,6 +230,7 @@ public class StateLayoutManager : MonoBehaviour {
             }
             Debug.Log("Decreased year to: " + year);
             RefreshMap();
+            ParallelCoordinates.Update();
             if (upper.generated)
             {
                 upper.RefreshGraph();
@@ -253,9 +255,9 @@ public class StateLayoutManager : MonoBehaviour {
         // Set State Z positions based on height
         Alabama.transform.localScale = new Vector3(Alabama.transform.localScale.x, Alabama.transform.localScale.y, heights.AL);
         Alaska.transform.localScale = new Vector3(Alaska.transform.localScale.x, Alaska.transform.localScale.y, heights.AS);
-        Arizona.transform.localScale = new Vector3(Arizona.transform.localScale.x, Arizona.transform.localScale.y, heights.AZ * 0.2f);
+        Arizona.transform.localScale = new Vector3(Arizona.transform.localScale.x, Arizona.transform.localScale.y, heights.AZ);
         Arkansas.transform.localScale = new Vector3(Arkansas.transform.localScale.x, Arkansas.transform.localScale.y, heights.AR);
-        California.transform.localScale = new Vector3(California.transform.localScale.x, California.transform.localScale.y, heights.CA * 0.2f);
+        California.transform.localScale = new Vector3(California.transform.localScale.x, California.transform.localScale.y, heights.CA);
         Colorado.transform.localScale = new Vector3(Colorado.transform.localScale.x, Colorado.transform.localScale.y, heights.CO);
         Connecticut.transform.localScale = new Vector3(Connecticut.transform.localScale.x, Connecticut.transform.localScale.y, heights.CT);
         Delaware.transform.localScale = new Vector3(Delaware.transform.localScale.x, Delaware.transform.localScale.y, heights.DE);
