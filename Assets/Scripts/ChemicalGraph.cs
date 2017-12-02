@@ -103,7 +103,9 @@ public class ChemicalGraph : MonoBehaviour {
     public float expandSpeed;
     private string lastState;
     public Text hoverText;
+    public Text valueText;
     public string selectedLabel = "";
+    public string selectedValue = "";
 
     //Sibling graphs
     public ChemicalGraph sibling1;
@@ -268,6 +270,8 @@ public class ChemicalGraph : MonoBehaviour {
             
             newWedge.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, zRotation));
             zRotation -= newWedge.fillAmount * 360f;
+
+            newWedge.GetComponent<Wedge>().value = values[i];
         }
 
         target = midTarget;
@@ -296,6 +300,8 @@ public class ChemicalGraph : MonoBehaviour {
         target = new Vector3(0, 0, 0);
         stateTitle.text = "";
         hoverText.text = "";
+        selectedValue = "";
+        valueText.text = "";
     }
 
     public void ExpandMatchingWedges(string chemical)
@@ -342,6 +348,7 @@ public class ChemicalGraph : MonoBehaviour {
                     if (chemical.Equals(childLabel))
                     {
                         childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                        sibling1.selectedValue = "" + childWedge.transform.gameObject.GetComponent<Wedge>().value;
                     }
                 }
             }
@@ -354,6 +361,7 @@ public class ChemicalGraph : MonoBehaviour {
                     if (chemical.Equals(childLabel))
                     {
                         childWedge.transform.gameObject.GetComponent<Wedge>().Contract();
+                        sibling2.selectedValue = "" + childWedge.transform.gameObject.GetComponent<Wedge>().value;
                     }
                 }
             }
@@ -363,13 +371,16 @@ public class ChemicalGraph : MonoBehaviour {
     public void UpdateHoverText()
     {
         hoverText.text = selectedLabel;
+        valueText.text = selectedValue;
         if (sibling1.generated)
         {
             sibling1.hoverText.text = selectedLabel;
+            sibling1.valueText.text = sibling1.selectedValue;
         }
         if (sibling2.generated)
         {
             sibling2.hoverText.text = selectedLabel;
+            sibling2.valueText.text = sibling2.selectedValue;
         }
     }
 

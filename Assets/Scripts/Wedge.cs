@@ -9,10 +9,12 @@ public class Wedge : MonoBehaviour {
     public string label = "";
     public bool expanded = false;
     public Color defaultColor;
+    public float value = 0f;
 
     public void lookedAt()
     {
         Contract();
+        transform.parent.GetComponent<ChemicalGraph>().valueText.text = "" + value;
         transform.parent.GetComponent<ChemicalGraph>().ContractMatchingWedges(label);
     }
 
@@ -27,7 +29,8 @@ public class Wedge : MonoBehaviour {
         string oldSelection = transform.parent.GetComponent<ChemicalGraph>().selectedLabel;
 
         transform.parent.GetComponent<ChemicalGraph>().selectedLabel = label;
-        if(transform.parent.GetComponent<ChemicalGraph>().sibling1.generated)
+        transform.parent.GetComponent<ChemicalGraph>().selectedValue = "" + value;
+        if (transform.parent.GetComponent<ChemicalGraph>().sibling1.generated)
         {
             transform.parent.GetComponent<ChemicalGraph>().sibling1.selectedLabel = label;
         }
