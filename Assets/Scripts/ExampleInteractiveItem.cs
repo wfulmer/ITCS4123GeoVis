@@ -76,6 +76,16 @@ namespace DataStarter
                 string tag = gameObject.tag;
                 Debug.Log("Show click state: " + tag);
                 m_Renderer.material = m_ClickedMaterial;
+                GameObject[] temp = GameObject.FindGameObjectsWithTag(tag);
+                //Debug.Log("Length: " + temp.Length);
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (temp[i].GetComponent<LineRenderer>() != null) {
+                        temp[i].GetComponent<LineRenderer>().startColor = new Color(255, 100, 0, 1);
+                        temp[i].GetComponent<LineRenderer>().endColor = new Color(255, 100, 0, 1);
+                    }
+                }
+
                 if (midCanvas.GetComponent<ChemicalGraph>().generated == false)
                 {
                     midCanvas.transform.position = transform.position;
@@ -117,6 +127,17 @@ namespace DataStarter
                     generated = false;
                 }
                 m_Renderer.material = m_OverMaterial;
+
+                GameObject[] temp = GameObject.FindGameObjectsWithTag(tag);
+                //Debug.Log("Length: " + temp.Length);
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    if (temp[i].GetComponent<LineRenderer>() != null)
+                    {
+                        temp[i].GetComponent<LineRenderer>().startColor = new Color(0, 255, 255, .5f);
+                        temp[i].GetComponent<LineRenderer>().endColor = new Color(0, 255, 255, .5f);
+                    }
+                }
             }
         }
 

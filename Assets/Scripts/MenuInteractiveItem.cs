@@ -13,7 +13,8 @@ namespace DataStarter
         [SerializeField] private VRInteractiveItem m_InteractiveItem;
         [SerializeField] private Renderer m_Renderer;
 
-        //public Canvas canvas;
+        
+        private bool generated = false;
 
         private void Awake()
         {
@@ -43,7 +44,10 @@ namespace DataStarter
         private void HandleOver()
         {
             Debug.Log("Show over state");//this changes the color of material on the next line.
-            m_Renderer.material = m_OverMaterial;
+            if (!generated)
+            {
+                m_Renderer.material = m_OverMaterial;
+            }
         }
 
 
@@ -51,13 +55,17 @@ namespace DataStarter
         private void HandleOut()
         {
             Debug.Log("Show out state");
-            m_Renderer.material = m_NormalMaterial;
+            if (!generated)
+            {
+                m_Renderer.material = m_NormalMaterial;
+            }
         }
 
 
         //Handle the Click event
         private void HandleClick()
         {
+            
             if (gameObject.CompareTag("Clean")) {
                 StatePercents.type = 0;
             }else if (gameObject.CompareTag("Carc"))
@@ -71,6 +79,16 @@ namespace DataStarter
             else if (gameObject.CompareTag("Fed"))
             {
                 StatePercents.type = 3;
+            }
+            if (!generated)
+            {
+                m_Renderer.material = m_ClickedMaterial;
+                generated = true;
+            }
+            else
+            {
+                m_Renderer.material = m_NormalMaterial;
+                generated = false;
             }
 
         }
