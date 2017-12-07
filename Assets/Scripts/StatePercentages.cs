@@ -3640,8 +3640,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 AlabamaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3674,8 +3674,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 AlaskaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3708,8 +3708,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 ArizonaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3741,8 +3741,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 ArkansasMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3774,8 +3774,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 CaliforniaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3807,8 +3807,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 ColoradoMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3840,8 +3840,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 ConnecticutMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3873,8 +3873,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 DelawareMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3906,8 +3906,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 FloridaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3939,8 +3939,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 GeorgiaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -3972,8 +3972,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 HawaiiMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4005,8 +4005,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 IdahoMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4038,8 +4038,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 IllinoisMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4071,8 +4071,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 IndianaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4104,8 +4104,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 IowaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4137,8 +4137,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 KansasMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4170,8 +4170,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 KentuckyMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4203,8 +4203,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 LouisianaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4236,8 +4236,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MaineMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4269,8 +4269,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MarylandMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4302,8 +4302,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MassachusettsMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4335,8 +4335,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MichiganMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4368,8 +4368,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MinnesotaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4401,8 +4401,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MississippiMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4434,8 +4434,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MissouriMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4467,8 +4467,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 MontanaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4500,8 +4500,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NebraskaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4533,8 +4533,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NevadaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4566,8 +4566,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NewHampshireMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4599,8 +4599,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NewJerseyMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4632,8 +4632,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NewMexicoMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4665,8 +4665,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NewYorkMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4698,8 +4698,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NorthCarolinaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4731,8 +4731,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 NorthDakotaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4764,8 +4764,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 OhioMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4797,8 +4797,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 OklahomaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4830,8 +4830,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 OregonMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4863,8 +4863,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 PennsylvaniaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4896,8 +4896,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 RhodeIslandMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4929,8 +4929,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 SouthCarolinaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4962,8 +4962,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 SouthDakotaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -4995,8 +4995,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 TennesseeMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5028,8 +5028,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 TexasMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5061,8 +5061,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 UtahMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5094,8 +5094,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 VermontMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5127,8 +5127,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 VirginiaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5160,8 +5160,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 WashingtonMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5193,8 +5193,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 WestVirginiaMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5226,8 +5226,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 WisconsinMaterial.color = new Color(red, green, blue, 1);
             }
@@ -5259,8 +5259,8 @@ public class StatePercentages : MonoBehaviour {
             }
             else
             {
-                red = (valueScaled / 37) * 255;
-                green = 0;
+                red = 0;
+                green = (valueScaled / 37) * 255;
                 blue = (valueScaled / 37) * 255;
                 WyomingMaterial.color = new Color(red, green, blue, 1);
             }
