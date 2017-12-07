@@ -1,5 +1,5 @@
-Timothy Hayduk - 3D Map Layout, Chemical bar graph (Converted to Pie Chart), multi-chart comparisons
-Willis Fulmer - Interaction, VR Integration, 3D state conversion
+Timothy Hayduk - 3D Map Layout, Chemical bar graph (Converted to Pie Chart), multi-chart comparisons, Parallel Coordinate Graph, Data conversion.
+Willis Fulmer - Interaction, VR Integration, 3D state conversion, filtering algorithm, Parallel Coordinate Graph, Controller integration.
 Jesse Pinkston - Industry Sector bar graph (Unimplemented, converting to pie chart)
 
 For our Device Starter, we decided to stick with the same data set from our Data Starter, 
