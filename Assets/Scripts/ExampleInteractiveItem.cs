@@ -20,6 +20,7 @@ namespace DataStarter
 
         private bool generated = false;
 
+
         private void Awake ()
         {
             m_Renderer.material = m_NormalMaterial;
@@ -78,14 +79,16 @@ namespace DataStarter
                 m_Renderer.material = m_ClickedMaterial;
                 GameObject[] temp = GameObject.FindGameObjectsWithTag(tag);
                 //Debug.Log("Length: " + temp.Length);
-                for (int i = 0; i < temp.Length; i++)
-                {
-                    if (temp[i].GetComponent<LineRenderer>() != null) {
-                        temp[i].GetComponent<LineRenderer>().startColor = new Color(255, 100, 0, 1);
-                        temp[i].GetComponent<LineRenderer>().endColor = new Color(255, 100, 0, 1);
+                if (ParallelCoordinates.hLines < 3) { 
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        if (temp[i].GetComponent<LineRenderer>() != null) {
+                            temp[i].GetComponent<LineRenderer>().startColor = new Color(255, 100, 0, 1);
+                            temp[i].GetComponent<LineRenderer>().endColor = new Color(255, 100, 0, 1);
+                            ParallelCoordinates.hLines++;
+                        }
                     }
                 }
-
                 if (midCanvas.GetComponent<ChemicalGraph>().generated == false)
                 {
                     midCanvas.transform.position = transform.position;
@@ -136,6 +139,7 @@ namespace DataStarter
                     {
                         temp[i].GetComponent<LineRenderer>().startColor = new Color(0, 255, 255, .5f);
                         temp[i].GetComponent<LineRenderer>().endColor = new Color(0, 255, 255, .5f);
+                        ParallelCoordinates.hLines--;
                     }
                 }
             }

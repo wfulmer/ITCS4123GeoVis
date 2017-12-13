@@ -6,7 +6,7 @@ using System.IO;
 public class ParallelCoordinates : MonoBehaviour
 {
 
-    //public int year = 2015;
+    public static int hLines = 0;
 
     void Awake()
     {
